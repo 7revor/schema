@@ -1,5 +1,9 @@
 export const Type = {
   /**
+   * schema开头的信息
+   */
+  LABEL: "label",
+  /**
    * 当前field的值为文本输入
    */
   INPUT: "input",
