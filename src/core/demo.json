@@ -1,0 +1,5135 @@
+{
+  "fieldList": [
+    {
+      "labelGroup": {
+        "labelGroup": [
+          {
+            "labelGroup": null,
+            "label": {
+              "desc": "",
+              "name": "开发者说明",
+              "value": "1.此为开发者消息，在第三方开发者有UI对客户展示时应主动屏蔽此消息；3.接入Schema接口初期，有任何疑问或者bug反馈请到钉钉群（群号：21722793）交流;4.橱窗推荐即将下线，请查看官方公告【https://ump.bbs.taobao.com/detail.html?postId=8679832】"
+            },
+            "name": "dev_infos"
+          },
+          {
+            "labelGroup": null,
+            "label": {
+              "desc": "",
+              "name": "欢迎",
+              "value": "欢迎使用Schema新商品发布体系"
+            },
+            "name": "sys_infos"
+          }
+        ],
+        "label": null,
+        "name": ""
+      },
+      "rules": null,
+      "fields": null,
+      "complexValue": null,
+      "options": null,
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "infos",
+      "name": "信息",
+      "type": "label"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "tipRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "标题和描述关键词是否违规自检工具：<a href='//ss.taobao.com/compliance#/main' target='_blank'>商品合规工具</a>"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "requiredRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "true"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": "include",
+          "name": "maxLengthRule",
+          "target": null,
+          "unit": "byte",
+          "url": null,
+          "value": "120"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "tipRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "最多允许输入60个汉字（120字节）"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "valueTypeRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "text"
+        }
+      ],
+      "fields": null,
+      "complexValue": null,
+      "options": null,
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "title",
+      "name": "宝贝标题",
+      "type": "input"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "tipRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "错误填写宝贝属性，可能会引起宝贝下架或搜索流量减少，影响您的正常销售，请认真准确填写！"
+        }
+      ],
+      "fields": [
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "requiredRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "true"
+            },
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "100"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-2043183",
+          "name": "书名",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "requiredRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "true"
+            },
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "100"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-1636953",
+          "name": "ISBN编号",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "100"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-24229",
+          "name": "主题",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": [
+            {
+              "displayName": "铜版纸",
+              "value": "16425380"
+            },
+            {
+              "displayName": "牛皮纸",
+              "value": "8461597"
+            },
+            {
+              "displayName": "轻型纸",
+              "value": "53188513"
+            },
+            {
+              "displayName": "胶版纸",
+              "value": "16359101"
+            },
+            {
+              "displayName": "再生纸",
+              "value": "9391380"
+            },
+            {
+              "displayName": "特种纸",
+              "value": "9797165"
+            },
+            {
+              "displayName": "白卡纸",
+              "value": "19063365"
+            },
+            {
+              "displayName": "硫酸纸",
+              "value": "11295751"
+            },
+            {
+              "displayName": "纯质纸",
+              "value": "29247188"
+            }
+          ],
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-217554838",
+          "name": "内文用纸材质",
+          "type": "singleCheck"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "9999"
+            },
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "tipRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "格式为 :年-月，无单位"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-231236266",
+          "name": "出版时间",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "100"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-218140172",
+          "name": "包册数",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": "输入属性值",
+              "exProperty": null,
+              "name": "valueAttributeRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "inputValue"
+            },
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "valueTypeRule",
+              "target": "attribute:inputValue",
+              "unit": null,
+              "url": null,
+              "value": "text"
+            },
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": "attribute:inputValue",
+              "unit": "character",
+              "url": null,
+              "value": "100"
+            },
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "tipRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "该属性支持自定义输入，自定义输入值请填写至value标签inputValue属性, value标签内容为任意负数"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": [
+            {
+              "displayName": "BOLER/博尔乐",
+              "value": "1951840404"
+            },
+            {
+              "displayName": "BOOKLINK/书中缘",
+              "value": "1953269452"
+            },
+            {
+              "displayName": "BRIGHT BRAINPOWER/汇智光华",
+              "value": "1953269671"
+            },
+            {
+              "displayName": "CHINA MEDICAL SCIENCE PRESS/中国医药科技出版社",
+              "value": "1955968864"
+            },
+            {
+              "displayName": "Cheers Publishing/湛庐文化",
+              "value": "1951842404"
+            },
+            {
+              "displayName": "Children's Fun/童趣",
+              "value": "2209977113"
+            },
+            {
+              "displayName": "Chiso/青少社",
+              "value": "96933810"
+            },
+            {
+              "displayName": "Cultural Relics Press/文物出版社",
+              "value": "3013154969"
+            },
+            {
+              "displayName": "Dipper/北斗",
+              "value": "104756173"
+            },
+            {
+              "displayName": "ECNUP/华东师范大学出版社",
+              "value": "1951835131"
+            },
+            {
+              "displayName": "ESPH/教育科学出版社",
+              "value": "1958233975"
+            },
+            {
+              "displayName": "Elephant press/大象出版社",
+              "value": "1951046448"
+            },
+            {
+              "displayName": "Everafter Books/奇想国童书",
+              "value": "5323386799"
+            },
+            {
+              "displayName": "FONGHONG/联动图书",
+              "value": "2257257442"
+            },
+            {
+              "displayName": "FUJIANEDUCATIONPRESS/福建教育出版社",
+              "value": "1954294006"
+            },
+            {
+              "displayName": "GREEN BEANS BOOK/青豆书坊",
+              "value": "5523752606"
+            },
+            {
+              "displayName": "HEBEI CHILDREN'S PUBLISHING HOUSE/河北少年儿童出版社",
+              "value": "2200934824"
+            },
+            {
+              "displayName": "HUBEI FINE ARTS PUBLISHING HOUSE/湖北美术出版社",
+              "value": "1954276999"
+            },
+            {
+              "displayName": "HZJY/华职教育",
+              "value": "5176770336"
+            },
+            {
+              "displayName": "INSIGHT MEDIA/浦睿文化",
+              "value": "1955995170"
+            },
+            {
+              "displayName": "JAKCOM",
+              "value": "1010662583"
+            },
+            {
+              "displayName": "JIANGXI FINE ARTS PUBLISHING HOUSE/江西美术出版社",
+              "value": "2200365741"
+            },
+            {
+              "displayName": "JINTIE BOOK/金铁图书",
+              "value": "2200093893"
+            },
+            {
+              "displayName": "JIUZHOUPRESS/九州出版社",
+              "value": "8059168118"
+            },
+            {
+              "displayName": "Jieli Publishing House/接力出版社",
+              "value": "5414195297"
+            },
+            {
+              "displayName": "KAI MING PRESS/开明出版社",
+              "value": "2670279484"
+            },
+            {
+              "displayName": "KAPLAN",
+              "value": "16769552"
+            },
+            {
+              "displayName": "KID'S REPUBLIC/蒲蒲兰绘本馆",
+              "value": "1951838554"
+            },
+            {
+              "displayName": "LiJiang",
+              "value": "13010768"
+            },
+            {
+              "displayName": "NEW CHANNEL/新航道",
+              "value": "2202831932"
+            },
+            {
+              "displayName": "PALACE MUSEUM/故宫",
+              "value": "1297758217"
+            },
+            {
+              "displayName": "PASSCARE/绿卡凯尔",
+              "value": "1952602238"
+            },
+            {
+              "displayName": "PEOPLE'S LITERATURE PUBLISHING HOUSE/人民文学出版社",
+              "value": "5140106382"
+            },
+            {
+              "displayName": "POSTS & TELECOM PRESS/人民邮电出版社",
+              "value": "2598345381"
+            },
+            {
+              "displayName": "Paperfox/纸贵满堂",
+              "value": "727250106"
+            },
+            {
+              "displayName": "SCIENCE PRESS/科学出版社",
+              "value": "1119052384"
+            },
+            {
+              "displayName": "SHANXIANG EDUCATION/山香教育",
+              "value": "2200111527"
+            },
+            {
+              "displayName": "STRICT SELECTION/辛选·用心选",
+              "value": "9579247969"
+            },
+            {
+              "displayName": "TEP/旅游教育出版社",
+              "value": "9231128544"
+            },
+            {
+              "displayName": "TIANXING EDUCATION/天星教育",
+              "value": "1955982850"
+            },
+            {
+              "displayName": "TIANYI CULTURE/天一新奥",
+              "value": "1955966808"
+            },
+            {
+              "displayName": "TOMORROW PUBLISHING HOUSE/明天出版社",
+              "value": "2200652336"
+            },
+            {
+              "displayName": "Teeny Baby/小小孩",
+              "value": "3944178"
+            },
+            {
+              "displayName": "UTOP/禹田文化传媒",
+              "value": "1951835171"
+            },
+            {
+              "displayName": "XIRON/磨铁",
+              "value": "2200103747"
+            },
+            {
+              "displayName": "ZHUANGYUAN/状元汇",
+              "value": "10705657835"
+            },
+            {
+              "displayName": "ZVENBOOKS/指文图书",
+              "value": "1951834575"
+            },
+            {
+              "displayName": "dolphin media",
+              "value": "21910942"
+            },
+            {
+              "displayName": "imaginist/理想国",
+              "value": "4140487807"
+            },
+            {
+              "displayName": "little windmill/小风车",
+              "value": "1951847191"
+            },
+            {
+              "displayName": "unread/未读",
+              "value": "1017626672"
+            },
+            {
+              "displayName": "一思",
+              "value": "65711770"
+            },
+            {
+              "displayName": "一本",
+              "value": "17798711"
+            },
+            {
+              "displayName": "一臂之力",
+              "value": "595164798"
+            },
+            {
+              "displayName": "万向思维",
+              "value": "144800634"
+            },
+            {
+              "displayName": "万唯教育",
+              "value": "303422815"
+            },
+            {
+              "displayName": "三可可",
+              "value": "1951837473"
+            },
+            {
+              "displayName": "三江顶呱呱",
+              "value": "554564588"
+            },
+            {
+              "displayName": "上海教育出版社",
+              "value": "15989256"
+            },
+            {
+              "displayName": "世纪金榜",
+              "value": "18181010"
+            },
+            {
+              "displayName": "东北书局",
+              "value": "349953254"
+            },
+            {
+              "displayName": "东奥",
+              "value": "8812258"
+            },
+            {
+              "displayName": "中人教育",
+              "value": "69711757"
+            },
+            {
+              "displayName": "中信出版",
+              "value": "17502779"
+            },
+            {
+              "displayName": "中公教育",
+              "value": "21207808"
+            },
+            {
+              "displayName": "中南天使",
+              "value": "882116093"
+            },
+            {
+              "displayName": "中国人民大学出版社",
+              "value": "7286425"
+            },
+            {
+              "displayName": "中国国家地理",
+              "value": "118166"
+            },
+            {
+              "displayName": "中国少年儿童出版社",
+              "value": "16323939"
+            },
+            {
+              "displayName": "中国建筑工业出版社",
+              "value": "11466664"
+            },
+            {
+              "displayName": "中国水利水电出版社",
+              "value": "16341157"
+            },
+            {
+              "displayName": "中国纺织出版社",
+              "value": "9239568"
+            },
+            {
+              "displayName": "中国轻工业出版社",
+              "value": "16325998"
+            },
+            {
+              "displayName": "中国铁道出版社",
+              "value": "11923772"
+            },
+            {
+              "displayName": "中知海",
+              "value": "1940887910"
+            },
+            {
+              "displayName": "中译经典",
+              "value": "1951832584"
+            },
+            {
+              "displayName": "乐乐趣",
+              "value": "4535862"
+            },
+            {
+              "displayName": "九久书友",
+              "value": "1958248150"
+            },
+            {
+              "displayName": "书香文雅",
+              "value": "114113647"
+            },
+            {
+              "displayName": "二十一世纪出版社",
+              "value": "9860314"
+            },
+            {
+              "displayName": "交大之星",
+              "value": "207622248"
+            },
+            {
+              "displayName": "人卫",
+              "value": "16376011"
+            },
+            {
+              "displayName": "人教社",
+              "value": "24283292"
+            },
+            {
+              "displayName": "人民交通出版社",
+              "value": "12191108"
+            },
+            {
+              "displayName": "人民出版社",
+              "value": "10131766"
+            },
+            {
+              "displayName": "从零起步",
+              "value": "208338644"
+            },
+            {
+              "displayName": "众阅天诚",
+              "value": "1054638496"
+            },
+            {
+              "displayName": "作家出版社",
+              "value": "8601058"
+            },
+            {
+              "displayName": "作家榜经典文库",
+              "value": "1788244483"
+            },
+            {
+              "displayName": "信谊",
+              "value": "1946281284"
+            },
+            {
+              "displayName": "全易通",
+              "value": "64954627"
+            },
+            {
+              "displayName": "兴盛乐",
+              "value": "17862499"
+            },
+            {
+              "displayName": "凯美（办公、文化及教育用品）",
+              "value": "6181120550"
+            },
+            {
+              "displayName": "力潮文创",
+              "value": "1401226096"
+            },
+            {
+              "displayName": "助才",
+              "value": "11404677921"
+            },
+            {
+              "displayName": "化学工业出版社",
+              "value": "9514570"
+            },
+            {
+              "displayName": "北京启发世纪图书有限责任公司",
+              "value": "823916141"
+            },
+            {
+              "displayName": "北京时代华文书局有限公司",
+              "value": "280276441"
+            },
+            {
+              "displayName": "北京联合出版有限责任公司",
+              "value": "138322150"
+            },
+            {
+              "displayName": "北京蒲公英童书馆文化传播有限公司",
+              "value": "5585801330"
+            },
+            {
+              "displayName": "北教小雨",
+              "value": "282930932"
+            },
+            {
+              "displayName": "十点读书",
+              "value": "978388793"
+            },
+            {
+              "displayName": "半月谈",
+              "value": "21766634"
+            },
+            {
+              "displayName": "华东理工大学",
+              "value": "16415200"
+            },
+            {
+              "displayName": "华图教育",
+              "value": "16584932"
+            },
+            {
+              "displayName": "华夏万卷",
+              "value": "26005587"
+            },
+            {
+              "displayName": "华文天下",
+              "value": "28142477"
+            },
+            {
+              "displayName": "华湘文化",
+              "value": "123156060"
+            },
+            {
+              "displayName": "华研外语",
+              "value": "17391389"
+            },
+            {
+              "displayName": "华章",
+              "value": "1963951940"
+            },
+            {
+              "displayName": "华育书林",
+              "value": "1952584959"
+            },
+            {
+              "displayName": "华阳文化",
+              "value": "17784897"
+            },
+            {
+              "displayName": "博士汇",
+              "value": "10469279692"
+            },
+            {
+              "displayName": "博集天卷",
+              "value": "133443093"
+            },
+            {
+              "displayName": "卡伊莱",
+              "value": "302274131"
+            },
+            {
+              "displayName": "司马彦字帖",
+              "value": "16436230"
+            },
+            {
+              "displayName": "吉祥熊",
+              "value": "1951825814"
+            },
+            {
+              "displayName": "同优",
+              "value": "1952700910"
+            },
+            {
+              "displayName": "后浪",
+              "value": "1951836163"
+            },
+            {
+              "displayName": "哼哼成长",
+              "value": "1840360299"
+            },
+            {
+              "displayName": "唐文",
+              "value": "17072108"
+            },
+            {
+              "displayName": "唯昭",
+              "value": "10086511598"
+            },
+            {
+              "displayName": "嘉良传媒",
+              "value": "356714040"
+            },
+            {
+              "displayName": "圣才教育",
+              "value": "139705128"
+            },
+            {
+              "displayName": "墨点",
+              "value": "28308596"
+            },
+            {
+              "displayName": "外研社",
+              "value": "9902999"
+            },
+            {
+              "displayName": "大周互娱",
+              "value": "1628827683"
+            },
+            {
+              "displayName": "天利38套",
+              "value": "22111960"
+            },
+            {
+              "displayName": "天才豆",
+              "value": "134887877"
+            },
+            {
+              "displayName": "天闻角川",
+              "value": "2200368735"
+            },
+            {
+              "displayName": "太阳城考研1号",
+              "value": "1968826492"
+            },
+            {
+              "displayName": "奶课",
+              "value": "1016712781"
+            },
+            {
+              "displayName": "好好玩童书",
+              "value": "1578625200"
+            },
+            {
+              "displayName": "妈妈总动员",
+              "value": "689854873"
+            },
+            {
+              "displayName": "学为贵",
+              "value": "1093468854"
+            },
+            {
+              "displayName": "学而思",
+              "value": "62927782"
+            },
+            {
+              "displayName": "学苑出版社",
+              "value": "5888125"
+            },
+            {
+              "displayName": "安徽少儿出版社",
+              "value": "16454954"
+            },
+            {
+              "displayName": "宜汝",
+              "value": "920838455"
+            },
+            {
+              "displayName": "宝宝蛋",
+              "value": "11307873"
+            },
+            {
+              "displayName": "宝贝听书",
+              "value": "12690109"
+            },
+            {
+              "displayName": "对啊网",
+              "value": "294856748"
+            },
+            {
+              "displayName": "小宠巴顿",
+              "value": "6205367124"
+            },
+            {
+              "displayName": "小树果果",
+              "value": "1423094349"
+            },
+            {
+              "displayName": "小熊乐童",
+              "value": "292746141"
+            },
+            {
+              "displayName": "小熊图书",
+              "value": "285028130"
+            },
+            {
+              "displayName": "小猿搜题",
+              "value": "1095255078"
+            },
+            {
+              "displayName": "小脚鸭",
+              "value": "42424439"
+            },
+            {
+              "displayName": "崇贤馆",
+              "value": "289784296"
+            },
+            {
+              "displayName": "巧巧兔",
+              "value": "1951829803"
+            },
+            {
+              "displayName": "幻象文库",
+              "value": "208328446"
+            },
+            {
+              "displayName": "广东人民出版社",
+              "value": "16347479"
+            },
+            {
+              "displayName": "广西师范大学出版社集团有限公司",
+              "value": "630318802"
+            },
+            {
+              "displayName": "开心",
+              "value": "1952720006"
+            },
+            {
+              "displayName": "当当网",
+              "value": "3238280"
+            },
+            {
+              "displayName": "必刷题",
+              "value": "646136989"
+            },
+            {
+              "displayName": "志鸿优化",
+              "value": "26695592"
+            },
+            {
+              "displayName": "恐龙小Q",
+              "value": "1091866368"
+            },
+            {
+              "displayName": "悦读纪",
+              "value": "17963169"
+            },
+            {
+              "displayName": "悦阅",
+              "value": "2753053897"
+            },
+            {
+              "displayName": "意林",
+              "value": "118158"
+            },
+            {
+              "displayName": "振宇锐智",
+              "value": "1477478258"
+            },
+            {
+              "displayName": "敬儒",
+              "value": "621080551"
+            },
+            {
+              "displayName": "文都教育",
+              "value": "25389402"
+            },
+            {
+              "displayName": "斑马王国",
+              "value": "941874223"
+            },
+            {
+              "displayName": "新东方",
+              "value": "46389"
+            },
+            {
+              "displayName": "新华先锋",
+              "value": "296032720"
+            },
+            {
+              "displayName": "新思路",
+              "value": "2200117066"
+            },
+            {
+              "displayName": "新悦读之旅",
+              "value": "737110631"
+            },
+            {
+              "displayName": "新经典",
+              "value": "4266294"
+            },
+            {
+              "displayName": "新蕾出版社",
+              "value": "16334899"
+            },
+            {
+              "displayName": "日知图书",
+              "value": "39503011"
+            },
+            {
+              "displayName": "时代云图",
+              "value": "1681259883"
+            },
+            {
+              "displayName": "时代文艺出版社",
+              "value": "16330551"
+            },
+            {
+              "displayName": "时代文轩",
+              "value": "211070478"
+            },
+            {
+              "displayName": "时尚",
+              "value": "118168"
+            },
+            {
+              "displayName": "易人外语",
+              "value": "1088520517"
+            },
+            {
+              "displayName": "星火",
+              "value": "2200633953"
+            },
+            {
+              "displayName": "昭象",
+              "value": "8873127013"
+            },
+            {
+              "displayName": "智慧熊",
+              "value": "1968821407"
+            },
+            {
+              "displayName": "智灵童",
+              "value": "648712699"
+            },
+            {
+              "displayName": "暖·出品",
+              "value": "1953277081"
+            },
+            {
+              "displayName": "曲一线",
+              "value": "16388296"
+            },
+            {
+              "displayName": "朗声",
+              "value": "4477016784"
+            },
+            {
+              "displayName": "木头马",
+              "value": "31813623"
+            },
+            {
+              "displayName": "木牍教育",
+              "value": "4774621042"
+            },
+            {
+              "displayName": "未来教育",
+              "value": "18725748"
+            },
+            {
+              "displayName": "机械工业出版社",
+              "value": "7289096"
+            },
+            {
+              "displayName": "果麦",
+              "value": "60638372"
+            },
+            {
+              "displayName": "正清远流",
+              "value": "2874630638"
+            },
+            {
+              "displayName": "歪歪兔",
+              "value": "1968814852"
+            },
+            {
+              "displayName": "江图（教育培训）",
+              "value": "8336579364"
+            },
+            {
+              "displayName": "江苏凤凰科学技术出版社",
+              "value": "118186701"
+            },
+            {
+              "displayName": "江苏教育出版社",
+              "value": "16397362"
+            },
+            {
+              "displayName": "浙江人民美术出版社",
+              "value": "16322192"
+            },
+            {
+              "displayName": "浙江文艺出版社",
+              "value": "16332865"
+            },
+            {
+              "displayName": "浦西城堡",
+              "value": "7050618224"
+            },
+            {
+              "displayName": "浪花朵朵",
+              "value": "5515653810"
+            },
+            {
+              "displayName": "海润阳光",
+              "value": "43693656"
+            },
+            {
+              "displayName": "海燕出版社",
+              "value": "16329257"
+            },
+            {
+              "displayName": "清华大学出版社",
+              "value": "6166797"
+            },
+            {
+              "displayName": "温杜",
+              "value": "528480549"
+            },
+            {
+              "displayName": "湖北教育出版社",
+              "value": "16353871"
+            },
+            {
+              "displayName": "湖南美术出版社",
+              "value": "16332811"
+            },
+            {
+              "displayName": "燎原",
+              "value": "2274809782"
+            },
+            {
+              "displayName": "爱德少儿",
+              "value": "799396257"
+            },
+            {
+              "displayName": "爱心树",
+              "value": "2200807703"
+            },
+            {
+              "displayName": "王朝霞",
+              "value": "17325659"
+            },
+            {
+              "displayName": "电子工业出版社",
+              "value": "7526079"
+            },
+            {
+              "displayName": "白马时光",
+              "value": "708486244"
+            },
+            {
+              "displayName": "百川教育",
+              "value": "153676232"
+            },
+            {
+              "displayName": "百川育人",
+              "value": "191758408"
+            },
+            {
+              "displayName": "皇榜",
+              "value": "1963979199"
+            },
+            {
+              "displayName": "皮皮虾",
+              "value": "1952718180"
+            },
+            {
+              "displayName": "皮皮鲁总动员",
+              "value": "8984820"
+            },
+            {
+              "displayName": "知书堂",
+              "value": "73448412"
+            },
+            {
+              "displayName": "科学普及出版社",
+              "value": "16351412"
+            },
+            {
+              "displayName": "童宝奇",
+              "value": "2421864571"
+            },
+            {
+              "displayName": "童立方",
+              "value": "270086422"
+            },
+            {
+              "displayName": "童艺少儿",
+              "value": "1955969794"
+            },
+            {
+              "displayName": "童阅童书坊",
+              "value": "989810978"
+            },
+            {
+              "displayName": "竹石文化",
+              "value": "957054777"
+            },
+            {
+              "displayName": "篱下",
+              "value": "668160910"
+            },
+            {
+              "displayName": "米莱童书",
+              "value": "2911520658"
+            },
+            {
+              "displayName": "粉笔",
+              "value": "6830954"
+            },
+            {
+              "displayName": "精学活用",
+              "value": "2200386071"
+            },
+            {
+              "displayName": "纳合",
+              "value": "109498363"
+            },
+            {
+              "displayName": "经典全集",
+              "value": "4302497425"
+            },
+            {
+              "displayName": "经济科学出版社",
+              "value": "10897626"
+            },
+            {
+              "displayName": "绘之谐",
+              "value": "7644247776"
+            },
+            {
+              "displayName": "网阅",
+              "value": "295148351"
+            },
+            {
+              "displayName": "罗辑思维",
+              "value": "341292511"
+            },
+            {
+              "displayName": "美人榜",
+              "value": "7296349322"
+            },
+            {
+              "displayName": "美读",
+              "value": "1351051425"
+            },
+            {
+              "displayName": "美题",
+              "value": "90704747"
+            },
+            {
+              "displayName": "耕林",
+              "value": "16331278"
+            },
+            {
+              "displayName": "舵手证券图书",
+              "value": "18213322"
+            },
+            {
+              "displayName": "芭蓝",
+              "value": "9276148754"
+            },
+            {
+              "displayName": "荣恒教育",
+              "value": "1968822664"
+            },
+            {
+              "displayName": "萌伢",
+              "value": "1826895003"
+            },
+            {
+              "displayName": "薛金星",
+              "value": "16418729"
+            },
+            {
+              "displayName": "西泠印社",
+              "value": "4533062"
+            },
+            {
+              "displayName": "记忆坊",
+              "value": "18484296"
+            },
+            {
+              "displayName": "读客",
+              "value": "64235055"
+            },
+            {
+              "displayName": "读库",
+              "value": "25558192"
+            },
+            {
+              "displayName": "课堂内外",
+              "value": "29110551"
+            },
+            {
+              "displayName": "赋悦佳",
+              "value": "1619686952"
+            },
+            {
+              "displayName": "赢在微点",
+              "value": "1273704323"
+            },
+            {
+              "displayName": "超级全能生",
+              "value": "1113228023"
+            },
+            {
+              "displayName": "通成学典",
+              "value": "1953278246"
+            },
+            {
+              "displayName": "醉器妙",
+              "value": "4699089777"
+            },
+            {
+              "displayName": "重庆出版集团有限公司",
+              "value": "1968819617"
+            },
+            {
+              "displayName": "金太阳教育",
+              "value": "113440858"
+            },
+            {
+              "displayName": "金版文化",
+              "value": "17415175"
+            },
+            {
+              "displayName": "金童星",
+              "value": "41805059"
+            },
+            {
+              "displayName": "鑫杰源",
+              "value": "15863591"
+            },
+            {
+              "displayName": "钟书G金牌",
+              "value": "797624460"
+            },
+            {
+              "displayName": "长喜英语",
+              "value": "22343403"
+            },
+            {
+              "displayName": "长春出版社",
+              "value": "16485875"
+            },
+            {
+              "displayName": "长江文艺",
+              "value": "16349609"
+            },
+            {
+              "displayName": "阳光同学",
+              "value": "1815796329"
+            },
+            {
+              "displayName": "阳光宝贝",
+              "value": "54609272"
+            },
+            {
+              "displayName": "阿卡狄亚童书馆",
+              "value": "5238383080"
+            },
+            {
+              "displayName": "陌陌童年",
+              "value": "1769592212"
+            },
+            {
+              "displayName": "陕西人民教育出版社",
+              "value": "16323924"
+            },
+            {
+              "displayName": "青岛出版社",
+              "value": "16545335"
+            },
+            {
+              "displayName": "青葫芦",
+              "value": "232702815"
+            },
+            {
+              "displayName": "非写不可",
+              "value": "942502479"
+            },
+            {
+              "displayName": "风车童书",
+              "value": "20213527"
+            },
+            {
+              "displayName": "飞乐鸟",
+              "value": "53871531"
+            },
+            {
+              "displayName": "马志明",
+              "value": "16408832"
+            },
+            {
+              "displayName": "高等教育出版社",
+              "value": "11124326"
+            },
+            {
+              "displayName": "高顿财经",
+              "value": "112240667"
+            },
+            {
+              "displayName": "魅丽文化",
+              "value": "22930263"
+            },
+            {
+              "displayName": "魔力米",
+              "value": "11090609204"
+            },
+            {
+              "displayName": "鸿图巨基",
+              "value": "692254427"
+            },
+            {
+              "displayName": "麦小粒",
+              "value": "2200105385"
+            },
+            {
+              "displayName": "鼎成教育",
+              "value": "190444220"
+            },
+            {
+              "displayName": "龙门书局",
+              "value": "4533223"
+            },
+            {
+              "displayName": "other",
+              "value": "-1"
+            }
+          ],
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-20000",
+          "name": "品牌",
+          "type": "singleCheck"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "100"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-218122202",
+          "name": "页数",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": [
+            {
+              "displayName": "是",
+              "value": "21958"
+            },
+            {
+              "displayName": "否",
+              "value": "21959"
+            },
+            {
+              "displayName": "发大幅度",
+              "value": "27306663"
+            }
+          ],
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-122216545",
+          "name": "是否是套装",
+          "type": "singleCheck"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "100"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-46602357",
+          "name": "书名",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "100"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-46398806",
+          "name": "定价",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "requiredRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "true"
+            },
+            {
+              "dependGroup": null,
+              "desc": "输入属性值",
+              "exProperty": null,
+              "name": "valueAttributeRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "inputValue"
+            },
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "valueTypeRule",
+              "target": "attribute:inputValue",
+              "unit": null,
+              "url": null,
+              "value": "text"
+            },
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": "attribute:inputValue",
+              "unit": "character",
+              "url": null,
+              "value": "100"
+            },
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "tipRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "该属性支持自定义输入，自定义输入值请填写至value标签inputValue属性, value标签内容为任意负数"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": [
+            {
+              "displayName": "安徽大学出版社",
+              "value": "16835264"
+            },
+            {
+              "displayName": "安徽教育出版社",
+              "value": "16562798"
+            },
+            {
+              "displayName": "安徽科学技术出版社",
+              "value": "16417322"
+            },
+            {
+              "displayName": "安徽美术出版社",
+              "value": "16368853"
+            },
+            {
+              "displayName": "安徽人民出版社",
+              "value": "16331453"
+            },
+            {
+              "displayName": "安徽少年儿童出版社",
+              "value": "10366974"
+            },
+            {
+              "displayName": "安徽师范大学出版社",
+              "value": "85093694"
+            },
+            {
+              "displayName": "安徽文艺出版社",
+              "value": "16332760"
+            },
+            {
+              "displayName": "合肥工业大学出版社",
+              "value": "16926469"
+            },
+            {
+              "displayName": "黄山书社",
+              "value": "4533210"
+            },
+            {
+              "displayName": "中国科学技术大学出版社",
+              "value": "16347405"
+            },
+            {
+              "displayName": "北京出版社",
+              "value": "6856861"
+            },
+            {
+              "displayName": "北京工业大学出版社",
+              "value": "16391755"
+            },
+            {
+              "displayName": "北京工艺美术出版社",
+              "value": "16405345"
+            },
+            {
+              "displayName": "北京教育出版社",
+              "value": "16334318"
+            },
+            {
+              "displayName": "北京科学技术出版社",
+              "value": "10121066"
+            },
+            {
+              "displayName": "北京联合出版有限责任公司",
+              "value": "138322150"
+            },
+            {
+              "displayName": "北京旅游教育出版社",
+              "value": "44554042"
+            },
+            {
+              "displayName": "北京美术摄影出版社",
+              "value": "16376532"
+            },
+            {
+              "displayName": "北京人民出版社",
+              "value": "16378482"
+            },
+            {
+              "displayName": "北京日报出版社",
+              "value": "16678878"
+            },
+            {
+              "displayName": "北京少年儿童出版社",
+              "value": "7756231"
+            },
+            {
+              "displayName": "北京十月文艺出版社",
+              "value": "10120837"
+            },
+            {
+              "displayName": "北京时代华文书局",
+              "value": "286648535"
+            },
+            {
+              "displayName": "北京首都经济贸易大学出版社",
+              "value": "183458621"
+            },
+            {
+              "displayName": "北京首都师范大学出版社",
+              "value": "22022968"
+            },
+            {
+              "displayName": "北京燕山出版社",
+              "value": "16329211"
+            },
+            {
+              "displayName": "文津出版社",
+              "value": "20150825"
+            },
+            {
+              "displayName": "中国书店",
+              "value": "4534089"
+            },
+            {
+              "displayName": "新疆生产建设兵团出版社",
+              "value": "24053531"
+            },
+            {
+              "displayName": "福建海峡文艺出版社",
+              "value": "114860695"
+            },
+            {
+              "displayName": "福建教育出版社",
+              "value": "16392252"
+            },
+            {
+              "displayName": "福建科学技术出版社",
+              "value": "16412750"
+            },
+            {
+              "displayName": "福建鹭江出版社",
+              "value": "110921866"
+            },
+            {
+              "displayName": "福建美术出版社",
+              "value": "16477099"
+            },
+            {
+              "displayName": "福建人民出版社",
+              "value": "16452332"
+            },
+            {
+              "displayName": "福建少年儿童出版社",
+              "value": "16367700"
+            },
+            {
+              "displayName": "福建省地图出版社",
+              "value": "17393255"
+            },
+            {
+              "displayName": "海峡书局出版社",
+              "value": "204708259"
+            },
+            {
+              "displayName": "厦门大学出版社",
+              "value": "16446212"
+            },
+            {
+              "displayName": "敦煌文艺出版社",
+              "value": "16338889"
+            },
+            {
+              "displayName": "甘肃教育出版社",
+              "value": "16387149"
+            },
+            {
+              "displayName": "甘肃科学技术出版社",
+              "value": "18427184"
+            },
+            {
+              "displayName": "甘肃民族出版社",
+              "value": "17467227"
+            },
+            {
+              "displayName": "甘肃人民出版社",
+              "value": "16502029"
+            },
+            {
+              "displayName": "甘肃人民美术出版社",
+              "value": "16684542"
+            },
+            {
+              "displayName": "甘肃少年儿童出版社",
+              "value": "16334316"
+            },
+            {
+              "displayName": "甘肃文化出版社",
+              "value": "16422363"
+            },
+            {
+              "displayName": "兰州大学出版社",
+              "value": "16413149"
+            },
+            {
+              "displayName": "广东高等教育出版社",
+              "value": "16543451"
+            },
+            {
+              "displayName": "广东花城出版社",
+              "value": "19456018"
+            },
+            {
+              "displayName": "广东教育出版社",
+              "value": "16447332"
+            },
+            {
+              "displayName": "广东经济出版社",
+              "value": "7288096"
+            },
+            {
+              "displayName": "广东科技出版社",
+              "value": "16345913"
+            },
+            {
+              "displayName": "广东岭南美术出版社",
+              "value": "19326648"
+            },
+            {
+              "displayName": "广东旅游出版社",
+              "value": "16410308"
+            },
+            {
+              "displayName": "广东南方日报出版社",
+              "value": "10367682"
+            },
+            {
+              "displayName": "广东人民出版社",
+              "value": "16347479"
+            },
+            {
+              "displayName": "广东省地图出版社",
+              "value": "16610482"
+            },
+            {
+              "displayName": "广东新世纪出版社",
+              "value": "16605333"
+            },
+            {
+              "displayName": "广东羊城晚报出版社",
+              "value": "78097972"
+            },
+            {
+              "displayName": "广州出版社",
+              "value": "9866819"
+            },
+            {
+              "displayName": "广州暨南大学出版社",
+              "value": "61679729"
+            },
+            {
+              "displayName": "广州中山大学出版社",
+              "value": "24279598"
+            },
+            {
+              "displayName": "华南理工大学出版社",
+              "value": "11351496"
+            },
+            {
+              "displayName": "汕头大学出版社",
+              "value": "16389515"
+            },
+            {
+              "displayName": "深圳报业集团出版社",
+              "value": "16418650"
+            },
+            {
+              "displayName": "深圳市海天出版社",
+              "value": "44242426"
+            },
+            {
+              "displayName": "广西教育出版社",
+              "value": "16481935"
+            },
+            {
+              "displayName": "广西科学技术出版社",
+              "value": "16330475"
+            },
+            {
+              "displayName": "广西美术出版社",
+              "value": "16332816"
+            },
+            {
+              "displayName": "广西民族出版社",
+              "value": "16322866"
+            },
+            {
+              "displayName": "广西人民出版社",
+              "value": "8927734"
+            },
+            {
+              "displayName": "广西师范大学出版社",
+              "value": "8728187"
+            },
+            {
+              "displayName": "接力出版社",
+              "value": "10314975"
+            },
+            {
+              "displayName": "漓江出版社",
+              "value": "16328190"
+            },
+            {
+              "displayName": "贵州大学出版社",
+              "value": "17741907"
+            },
+            {
+              "displayName": "贵州教育出版社",
+              "value": "20256835"
+            },
+            {
+              "displayName": "贵州科技出版社",
+              "value": "16419570"
+            },
+            {
+              "displayName": "贵州民族出版社",
+              "value": "17493844"
+            },
+            {
+              "displayName": "贵州人民出版社",
+              "value": "16338176"
+            },
+            {
+              "displayName": "孔学堂书局有限公司",
+              "value": "933480712"
+            },
+            {
+              "displayName": "海南出版社",
+              "value": "7297035"
+            },
+            {
+              "displayName": "南方出版社",
+              "value": "16404775"
+            },
+            {
+              "displayName": "南海出版公司",
+              "value": "7291873"
+            },
+            {
+              "displayName": "三环出版社",
+              "value": "16386294"
+            },
+            {
+              "displayName": "河北大学出版社",
+              "value": "16510939"
+            },
+            {
+              "displayName": "河北教育出版社",
+              "value": "5533669"
+            },
+            {
+              "displayName": "河北科学技术出版社",
+              "value": "16404669"
+            },
+            {
+              "displayName": "河北美术出版社",
+              "value": "16631047"
+            },
+            {
+              "displayName": "河北人民出版社",
+              "value": "7523041"
+            },
+            {
+              "displayName": "河北少年儿童出版社",
+              "value": "16524276"
+            },
+            {
+              "displayName": "花山文艺出版社",
+              "value": "12819964"
+            },
+            {
+              "displayName": "燕山大学出版社",
+              "value": "367828831"
+            },
+            {
+              "displayName": "大象出版社",
+              "value": "16799103"
+            },
+            {
+              "displayName": "海燕出版社",
+              "value": "16329257"
+            },
+            {
+              "displayName": "河南大学出版社",
+              "value": "16330254"
+            },
+            {
+              "displayName": "河南科学技术出版社",
+              "value": "16537111"
+            },
+            {
+              "displayName": "河南美术出版社",
+              "value": "16481635"
+            },
+            {
+              "displayName": "河南人民出版社",
+              "value": "16329777"
+            },
+            {
+              "displayName": "河南文艺出版社",
+              "value": "16366008"
+            },
+            {
+              "displayName": "黄河水利出版社",
+              "value": "16615628"
+            },
+            {
+              "displayName": "文心出版社",
+              "value": "19802461"
+            },
+            {
+              "displayName": "郑州大学出版社",
+              "value": "16377374"
+            },
+            {
+              "displayName": "中原农民出版社",
+              "value": "16625716"
+            },
+            {
+              "displayName": "中州古籍出版社",
+              "value": "16480513"
+            },
+            {
+              "displayName": "哈尔滨出版社",
+              "value": "16385883"
+            },
+            {
+              "displayName": "哈尔滨地图出版社",
+              "value": "16592424"
+            },
+            {
+              "displayName": "哈尔滨东北林业大学出版社",
+              "value": "1956150002"
+            },
+            {
+              "displayName": "哈尔滨工程大学出版社",
+              "value": "11280683"
+            },
+            {
+              "displayName": "哈尔滨工业大学出版社",
+              "value": "16455633"
+            },
+            {
+              "displayName": "北方文艺出版社",
+              "value": "16325981"
+            },
+            {
+              "displayName": "黑龙江朝鲜民族出版社",
+              "value": "16533070"
+            },
+            {
+              "displayName": "黑龙江大学出版社",
+              "value": "17086886"
+            },
+            {
+              "displayName": "黑龙江教育出版社",
+              "value": "16322722"
+            },
+            {
+              "displayName": "黑龙江科学技术出版社",
+              "value": "9239804"
+            },
+            {
+              "displayName": "黑龙江美术出版社",
+              "value": "16376348"
+            },
+            {
+              "displayName": "黑龙江人民出版社",
+              "value": "16436527"
+            },
+            {
+              "displayName": "黑龙江少年儿童出版社",
+              "value": "17704148"
+            },
+            {
+              "displayName": "崇文书局",
+              "value": "4534100"
+            },
+            {
+              "displayName": "湖北教育出版社",
+              "value": "16353871"
+            },
+            {
+              "displayName": "湖北科学技术出版社",
+              "value": "16649685"
+            },
+            {
+              "displayName": "湖北美术出版社",
+              "value": "16330738"
+            },
+            {
+              "displayName": "湖北人民出版社",
+              "value": "16596780"
+            },
+            {
+              "displayName": "华中科技大学出版社",
+              "value": "14791125"
+            },
+            {
+              "displayName": "华中师范大学出版社",
+              "value": "16324383"
+            },
+            {
+              "displayName": "武汉出版社",
+              "value": "16534365"
+            },
+            {
+              "displayName": "武汉大学出版社",
+              "value": "7290396"
+            },
+            {
+              "displayName": "武汉理工大学出版社",
+              "value": "16646657"
+            },
+            {
+              "displayName": "长江出版社",
+              "value": "16774520"
+            },
+            {
+              "displayName": "长江少年儿童出版社",
+              "value": "535554684"
+            },
+            {
+              "displayName": "长江文艺出版社",
+              "value": "8993600"
+            },
+            {
+              "displayName": "中国地质大学出版社",
+              "value": "16473287"
+            },
+            {
+              "displayName": "湖南大学出版社",
+              "value": "16327794"
+            },
+            {
+              "displayName": "湖南地图出版社",
+              "value": "16672381"
+            },
+            {
+              "displayName": "湖南科学技术出版社",
+              "value": "16328538"
+            },
+            {
+              "displayName": "湖南美术出版社",
+              "value": "16332811"
+            },
+            {
+              "displayName": "湖南人民出版社",
+              "value": "16343079"
+            },
+            {
+              "displayName": "湖南少年儿童出版社",
+              "value": "16367398"
+            },
+            {
+              "displayName": "湖南师范大学出版社",
+              "value": "16538597"
+            },
+            {
+              "displayName": "湖南文艺出版社",
+              "value": "6621271"
+            },
+            {
+              "displayName": "湘潭大学出版社",
+              "value": "21395829"
+            },
+            {
+              "displayName": "岳麓书社",
+              "value": "4533237"
+            },
+            {
+              "displayName": "湖南教育出版社",
+              "value": "16329839"
+            },
+            {
+              "displayName": "中南大学出版社",
+              "value": "16360576"
+            },
+            {
+              "displayName": "北方妇女儿童出版社",
+              "value": "16334732"
+            },
+            {
+              "displayName": "吉林出版集团股份有限公司",
+              "value": "573970835"
+            },
+            {
+              "displayName": "吉林大学出版社",
+              "value": "16331213"
+            },
+            {
+              "displayName": "吉林教育出版社",
+              "value": "16681481"
+            },
+            {
+              "displayName": "吉林科学技术出版社",
+              "value": "16352782"
+            },
+            {
+              "displayName": "吉林美术出版社",
+              "value": "9855652"
+            },
+            {
+              "displayName": "吉林人民出版社",
+              "value": "16343020"
+            },
+            {
+              "displayName": "吉林摄影出版社",
+              "value": "16435719"
+            },
+            {
+              "displayName": "吉林文史出版社",
+              "value": "8927343"
+            },
+            {
+              "displayName": "时代文艺出版社",
+              "value": "16330551"
+            },
+            {
+              "displayName": "延边大学出版社",
+              "value": "16326735"
+            },
+            {
+              "displayName": "延边教育出版社",
+              "value": "16639331"
+            },
+            {
+              "displayName": "延边人民出版社",
+              "value": "16329357"
+            },
+            {
+              "displayName": "长春出版社",
+              "value": "16485875"
+            },
+            {
+              "displayName": "东北师范大学出版社",
+              "value": "16389908"
+            },
+            {
+              "displayName": "江苏大学出版社",
+              "value": "16754766"
+            },
+            {
+              "displayName": "江苏凤凰出版社",
+              "value": "26013250"
+            },
+            {
+              "displayName": "江苏凤凰教育出版社",
+              "value": "142462734"
+            },
+            {
+              "displayName": "江苏凤凰科学技术出版社",
+              "value": "118186701"
+            },
+            {
+              "displayName": "江苏凤凰美术出版社",
+              "value": "143295559"
+            },
+            {
+              "displayName": "江苏凤凰少年儿童出版社",
+              "value": "155669425"
+            },
+            {
+              "displayName": "江苏凤凰文艺出版社",
+              "value": "97106553"
+            },
+            {
+              "displayName": "江苏广陵书社",
+              "value": "47231092"
+            },
+            {
+              "displayName": "江苏人民出版社",
+              "value": "7724042"
+            },
+            {
+              "displayName": "江苏译林出版社",
+              "value": "16738182"
+            },
+            {
+              "displayName": "南京出版社",
+              "value": "16624185"
+            },
+            {
+              "displayName": "南京大学出版社",
+              "value": "16324705"
+            },
+            {
+              "displayName": "南京东南大学出版社",
+              "value": "23252512"
+            },
+            {
+              "displayName": "南京河海大学出版社",
+              "value": "1956150001"
+            },
+            {
+              "displayName": "南京师范大学出版社",
+              "value": "16619777"
+            },
+            {
+              "displayName": "苏州大学出版社",
+              "value": "16508419"
+            },
+            {
+              "displayName": "苏州古吴轩出版社",
+              "value": "71204393"
+            },
+            {
+              "displayName": "中国矿业大学出版社",
+              "value": "16477519"
+            },
+            {
+              "displayName": "百花洲文艺出版社",
+              "value": "7566467"
+            },
+            {
+              "displayName": "二十一世纪出版社",
+              "value": "9860314"
+            },
+            {
+              "displayName": "江西高校出版社",
+              "value": "16649500"
+            },
+            {
+              "displayName": "江西教育出版社",
+              "value": "16449189"
+            },
+            {
+              "displayName": "江西科学技术出版社",
+              "value": "16364309"
+            },
+            {
+              "displayName": "江西美术出版社",
+              "value": "16428115"
+            },
+            {
+              "displayName": "江西人民出版社",
+              "value": "16392617"
+            },
+            {
+              "displayName": "春风文艺出版社",
+              "value": "16357178"
+            },
+            {
+              "displayName": "大连出版社",
+              "value": "16575677"
+            },
+            {
+              "displayName": "大连海事大学出版社",
+              "value": "11338274"
+            },
+            {
+              "displayName": "大连理工大学出版社",
+              "value": "16346385"
+            },
+            {
+              "displayName": "东北财经大学出版社",
+              "value": "16392510"
+            },
+            {
+              "displayName": "东北大学出版社",
+              "value": "16426148"
+            },
+            {
+              "displayName": "辽海出版社",
+              "value": "16351771"
+            },
+            {
+              "displayName": "辽宁大学出版社",
+              "value": "16357391"
+            },
+            {
+              "displayName": "辽宁教育出版社",
+              "value": "16331358"
+            },
+            {
+              "displayName": "辽宁科学技术出版社",
+              "value": "16408730"
+            },
+            {
+              "displayName": "辽宁美术出版社",
+              "value": "16400609"
+            },
+            {
+              "displayName": "辽宁民族出版社",
+              "value": "16739830"
+            },
+            {
+              "displayName": "辽宁人民出版社",
+              "value": "16345305"
+            },
+            {
+              "displayName": "辽宁少年儿童出版社",
+              "value": "16720233"
+            },
+            {
+              "displayName": "辽宁师范大学出版社",
+              "value": "16974693"
+            },
+            {
+              "displayName": "沈阳出版社",
+              "value": "16328716"
+            },
+            {
+              "displayName": "万卷出版有限责任公司",
+              "value": "18212629"
+            },
+            {
+              "displayName": "内蒙古大学出版社",
+              "value": "16434495"
+            },
+            {
+              "displayName": "内蒙古教育出版社",
+              "value": "16693189"
+            },
+            {
+              "displayName": "内蒙古科学技术出版社",
+              "value": "16337651"
+            },
+            {
+              "displayName": "内蒙古人民出版社",
+              "value": "9858445"
+            },
+            {
+              "displayName": "内蒙古少年儿童出版社",
+              "value": "16509595"
+            },
+            {
+              "displayName": "内蒙古文化出版社",
+              "value": "16439858"
+            },
+            {
+              "displayName": "远方出版社",
+              "value": "16337147"
+            },
+            {
+              "displayName": "宁夏人民出版社",
+              "value": "16629741"
+            },
+            {
+              "displayName": "宁夏人民教育出版社",
+              "value": "20787528"
+            },
+            {
+              "displayName": "宁夏阳光出版社",
+              "value": "801372093"
+            },
+            {
+              "displayName": "青海民族出版社",
+              "value": "21295080"
+            },
+            {
+              "displayName": "青海人民出版社",
+              "value": "16480476"
+            },
+            {
+              "displayName": "济南出版有限责任公司",
+              "value": "647854872"
+            },
+            {
+              "displayName": "明天出版社",
+              "value": "16325177"
+            },
+            {
+              "displayName": "青岛出版社",
+              "value": "16545335"
+            },
+            {
+              "displayName": "山东大学出版社",
+              "value": "16645084"
+            },
+            {
+              "displayName": "山东画报出版社",
+              "value": "16375889"
+            },
+            {
+              "displayName": "山东教育出版社",
+              "value": "16496281"
+            },
+            {
+              "displayName": "山东科学技术出版社",
+              "value": "16325888"
+            },
+            {
+              "displayName": "山东美术出版社",
+              "value": "16331854"
+            },
+            {
+              "displayName": "山东齐鲁书社",
+              "value": "44919112"
+            },
+            {
+              "displayName": "山东人民出版社",
+              "value": "6617065"
+            },
+            {
+              "displayName": "山东省地图出版社",
+              "value": "16322593"
+            },
+            {
+              "displayName": "山东文艺出版社",
+              "value": "16611056"
+            },
+            {
+              "displayName": "山东友谊出版社",
+              "value": "16405874"
+            },
+            {
+              "displayName": "泰山出版社",
+              "value": "16681801"
+            },
+            {
+              "displayName": "中国海洋大学出版社",
+              "value": "16703835"
+            },
+            {
+              "displayName": "中国石油大学出版社",
+              "value": "17011506"
+            },
+            {
+              "displayName": "北岳文艺出版社",
+              "value": "8601670"
+            },
+            {
+              "displayName": "三晋出版社",
+              "value": "17411619"
+            },
+            {
+              "displayName": "山西教育出版社",
+              "value": "16624882"
+            },
+            {
+              "displayName": "山西经济出版社",
+              "value": "16607678"
+            },
+            {
+              "displayName": "山西科学技术出版社",
+              "value": "16890962"
+            },
+            {
+              "displayName": "山西人民出版社",
+              "value": "16540790"
+            },
+            {
+              "displayName": "书海出版社",
+              "value": "16847003"
+            },
+            {
+              "displayName": "希望出版社",
+              "value": "16330263"
+            },
+            {
+              "displayName": "陕西科学技术出版社",
+              "value": "16623796"
+            },
+            {
+              "displayName": "陕西旅游出版社",
+              "value": "16351599"
+            },
+            {
+              "displayName": "陕西人民出版社",
+              "value": "16621094"
+            },
+            {
+              "displayName": "陕西人民教育出版社",
+              "value": "16323924"
+            },
+            {
+              "displayName": "陕西人民美术出版社",
+              "value": "6612941"
+            },
+            {
+              "displayName": "陕西三秦出版社",
+              "value": "39025509"
+            },
+            {
+              "displayName": "陕西师范大学出版总社",
+              "value": "86772666"
+            },
+            {
+              "displayName": "陕西太白文艺出版社",
+              "value": "52019361"
+            },
+            {
+              "displayName": "陕西未来出版社",
+              "value": "32353756"
+            },
+            {
+              "displayName": "西安出版社",
+              "value": "16866286"
+            },
+            {
+              "displayName": "西安地图出版社",
+              "value": "16478243"
+            },
+            {
+              "displayName": "西安电子科技大学出版社",
+              "value": "16405245"
+            },
+            {
+              "displayName": "西安交通大学出版社",
+              "value": "4569958"
+            },
+            {
+              "displayName": "西北大学出版社",
+              "value": "16367236"
+            },
+            {
+              "displayName": "西北工业大学出版社",
+              "value": "16477706"
+            },
+            {
+              "displayName": "西北农林科技大学出版社",
+              "value": "18457238"
+            },
+            {
+              "displayName": "东方出版中心有限公司",
+              "value": "115186254"
+            },
+            {
+              "displayName": "东华大学出版社",
+              "value": "16456112"
+            },
+            {
+              "displayName": "复旦大学出版社",
+              "value": "7279309"
+            },
+            {
+              "displayName": "华东理工大学出版社",
+              "value": "16331380"
+            },
+            {
+              "displayName": "华东师范大学出版社",
+              "value": "16332272"
+            },
+            {
+              "displayName": "立信会计出版社",
+              "value": "16354799"
+            },
+            {
+              "displayName": "上海财经大学出版社",
+              "value": "7285797"
+            },
+            {
+              "displayName": "上海辞书出版社",
+              "value": "16350175"
+            },
+            {
+              "displayName": "上海大学出版社",
+              "value": "16444554"
+            },
+            {
+              "displayName": "上海交通大学出版社",
+              "value": "6616418"
+            },
+            {
+              "displayName": "上海教育出版社",
+              "value": "15989256"
+            },
+            {
+              "displayName": "上海锦绣文章出版社",
+              "value": "8926500"
+            },
+            {
+              "displayName": "上海科技教育出版社",
+              "value": "16461137"
+            },
+            {
+              "displayName": "上海科学技术出版社",
+              "value": "15348397"
+            },
+            {
+              "displayName": "上海科学技术文献出版社",
+              "value": "16412931"
+            },
+            {
+              "displayName": "上海科学普及出版社",
+              "value": "14071812"
+            },
+            {
+              "displayName": "上海浦江教育出版社",
+              "value": "170314451"
+            },
+            {
+              "displayName": "上海人民出版社",
+              "value": "5633365"
+            },
+            {
+              "displayName": "上海人民美术出版社",
+              "value": "4420995"
+            },
+            {
+              "displayName": "上海三联书店有限公司",
+              "value": "114525496"
+            },
+            {
+              "displayName": "上海社会科学院出版社",
+              "value": "16459780"
+            },
+            {
+              "displayName": "上海书店出版社",
+              "value": "16362403"
+            },
+            {
+              "displayName": "上海少年儿童出版社",
+              "value": "20411625"
+            },
+            {
+              "displayName": "远东出版社",
+              "value": "17676674"
+            },
+            {
+              "displayName": "上海译文出版社",
+              "value": "6615930"
+            },
+            {
+              "displayName": "上海古籍出版社",
+              "value": "16460006"
+            },
+            {
+              "displayName": "格致出版社",
+              "value": "16705498"
+            },
+            {
+              "displayName": "学林出版社",
+              "value": "16351385"
+            },
+            {
+              "displayName": "上海书画出版社",
+              "value": "16339436"
+            },
+            {
+              "displayName": "上海外语教育出版社",
+              "value": "16339421"
+            },
+            {
+              "displayName": "上海文化出版社",
+              "value": "10891710"
+            },
+            {
+              "displayName": "上海文汇出版社",
+              "value": "21983519"
+            },
+            {
+              "displayName": "上海文艺出版社",
+              "value": "16389499"
+            },
+            {
+              "displayName": "上海音乐出版社",
+              "value": "16326924"
+            },
+            {
+              "displayName": "上海音乐学院出版社",
+              "value": "4859345"
+            },
+            {
+              "displayName": "上海中西书局有限公司",
+              "value": "1556041069"
+            },
+            {
+              "displayName": "同济大学出版社",
+              "value": "16511558"
+            },
+            {
+              "displayName": "中国中福会出版社",
+              "value": "921820351"
+            },
+            {
+              "displayName": "中华地图学社",
+              "value": "4533202"
+            },
+            {
+              "displayName": "成都地图出版社",
+              "value": "16672643"
+            },
+            {
+              "displayName": "成都电子科大出版社",
+              "value": "125728965"
+            },
+            {
+              "displayName": "成都时代出版社",
+              "value": "16323687"
+            },
+            {
+              "displayName": "成都西南财大出版社",
+              "value": "405173485"
+            },
+            {
+              "displayName": "成都西南交大出版社",
+              "value": "703946854"
+            },
+            {
+              "displayName": "四川巴蜀书社",
+              "value": "20431348"
+            },
+            {
+              "displayName": "四川辞书出版社",
+              "value": "16375198"
+            },
+            {
+              "displayName": "四川大学出版社",
+              "value": "16376917"
+            },
+            {
+              "displayName": "四川教育出版社",
+              "value": "16693379"
+            },
+            {
+              "displayName": "四川科学技术出版社",
+              "value": "16374302"
+            },
+            {
+              "displayName": "四川美术出版社",
+              "value": "16359518"
+            },
+            {
+              "displayName": "四川民族出版社",
+              "value": "16452989"
+            },
+            {
+              "displayName": "四川人民出版社",
+              "value": "7301229"
+            },
+            {
+              "displayName": "四川少年儿童出版社",
+              "value": "16398746"
+            },
+            {
+              "displayName": "四川天地出版社",
+              "value": "129687884"
+            },
+            {
+              "displayName": "四川文艺出版社",
+              "value": "16437835"
+            },
+            {
+              "displayName": "百花文艺出版社",
+              "value": "16356684"
+            },
+            {
+              "displayName": "南开大学出版社",
+              "value": "16352322"
+            },
+            {
+              "displayName": "天津大学出版社",
+              "value": "16328346"
+            },
+            {
+              "displayName": "天津古籍出版社",
+              "value": "16721814"
+            },
+            {
+              "displayName": "天津教育出版社",
+              "value": "16404345"
+            },
+            {
+              "displayName": "天津科技翻译出版公司",
+              "value": "16593347"
+            },
+            {
+              "displayName": "天津科学技术出版社",
+              "value": "16437375"
+            },
+            {
+              "displayName": "天津人民出版社",
+              "value": "16342397"
+            },
+            {
+              "displayName": "天津人民美术出版社",
+              "value": "16393003"
+            },
+            {
+              "displayName": "天津社会科学院出版社",
+              "value": "16331764"
+            },
+            {
+              "displayName": "天津杨柳青画社",
+              "value": "4533234"
+            },
+            {
+              "displayName": "新蕾出版社",
+              "value": "16334899"
+            },
+            {
+              "displayName": "藏文古籍出版社",
+              "value": "28817609"
+            },
+            {
+              "displayName": "西藏人民出版社",
+              "value": "16349459"
+            },
+            {
+              "displayName": "喀什维吾尔文出版社",
+              "value": "16842879"
+            },
+            {
+              "displayName": "克孜勒苏柯尔克孜文出版社",
+              "value": "17126655"
+            },
+            {
+              "displayName": "新疆大学出版社",
+              "value": "19332657"
+            },
+            {
+              "displayName": "新疆教育出版社",
+              "value": "22724850"
+            },
+            {
+              "displayName": "新疆科学技术出版社",
+              "value": "18540452"
+            },
+            {
+              "displayName": "新疆青少年出版社",
+              "value": "16376593"
+            },
+            {
+              "displayName": "新疆人民出版社",
+              "value": "16366056"
+            },
+            {
+              "displayName": "新疆人民卫生出版社",
+              "value": "19038146"
+            },
+            {
+              "displayName": "新疆文化出版社",
+              "value": "649246972"
+            },
+            {
+              "displayName": "伊犁人民出版社",
+              "value": "16835759"
+            },
+            {
+              "displayName": "云南大学出版社",
+              "value": "16510690"
+            },
+            {
+              "displayName": "云南教育出版社",
+              "value": "16325282"
+            },
+            {
+              "displayName": "云南人民出版社",
+              "value": "16322704"
+            },
+            {
+              "displayName": "晨光出版社",
+              "value": "16338386"
+            },
+            {
+              "displayName": "德宏民族出版社",
+              "value": "16682252"
+            },
+            {
+              "displayName": "云南科技出版社",
+              "value": "12695077"
+            },
+            {
+              "displayName": "云南美术出版社",
+              "value": "16890281"
+            },
+            {
+              "displayName": "云南民族出版社",
+              "value": "16928669"
+            },
+            {
+              "displayName": "杭州出版社",
+              "value": "16695729"
+            },
+            {
+              "displayName": "宁波出版社",
+              "value": "16688030"
+            },
+            {
+              "displayName": "西泠印社出版社",
+              "value": "16839537"
+            },
+            {
+              "displayName": "浙江大学出版社",
+              "value": "10647200"
+            },
+            {
+              "displayName": "浙江工商大学出版社",
+              "value": "16410886"
+            },
+            {
+              "displayName": "浙江古籍出版社",
+              "value": "16338729"
+            },
+            {
+              "displayName": "浙江教育出版社",
+              "value": "16430713"
+            },
+            {
+              "displayName": "浙江科学技术出版社",
+              "value": "16385828"
+            },
+            {
+              "displayName": "浙江人民出版社",
+              "value": "16389272"
+            },
+            {
+              "displayName": "浙江人民美术出版社",
+              "value": "16322192"
+            },
+            {
+              "displayName": "浙江少年儿童出版社",
+              "value": "16354449"
+            },
+            {
+              "displayName": "浙江摄影出版社",
+              "value": "16334615"
+            },
+            {
+              "displayName": "浙江文艺出版社",
+              "value": "16332865"
+            },
+            {
+              "displayName": "中国美术学院出版社",
+              "value": "16368169"
+            },
+            {
+              "displayName": "北京大学出版社",
+              "value": "6853893"
+            },
+            {
+              "displayName": "北京大学医学出版社",
+              "value": "16390026"
+            },
+            {
+              "displayName": "北京对外经济贸易大学出版社",
+              "value": "175864675"
+            },
+            {
+              "displayName": "北京航空航天大学出版社",
+              "value": "16408624"
+            },
+            {
+              "displayName": "北京交通大学出版社",
+              "value": "16696700"
+            },
+            {
+              "displayName": "北京理工大学出版社",
+              "value": "12442344"
+            },
+            {
+              "displayName": "北京师范大学出版社",
+              "value": "16330912"
+            },
+            {
+              "displayName": "北京体育大学出版社",
+              "value": "6651595"
+            },
+            {
+              "displayName": "北京邮电大学出版社",
+              "value": "16428645"
+            },
+            {
+              "displayName": "北京语言大学出版社",
+              "value": "16416108"
+            },
+            {
+              "displayName": "兵器工业出版社",
+              "value": "16390797"
+            },
+            {
+              "displayName": "测绘出版社",
+              "value": "16506865"
+            },
+            {
+              "displayName": "朝华出版社",
+              "value": "16362888"
+            },
+            {
+              "displayName": "当代世界出版社",
+              "value": "16350539"
+            },
+            {
+              "displayName": "当代中国出版社",
+              "value": "16423030"
+            },
+            {
+              "displayName": "党建读物出版社",
+              "value": "16657059"
+            },
+            {
+              "displayName": "地震出版社",
+              "value": "7286175"
+            },
+            {
+              "displayName": "地质出版社",
+              "value": "16526904"
+            },
+            {
+              "displayName": "电子工业出版社",
+              "value": "7526079"
+            },
+            {
+              "displayName": "法律出版社",
+              "value": "7509043"
+            },
+            {
+              "displayName": "方志出版社",
+              "value": "17994417"
+            },
+            {
+              "displayName": "高等教育出版社",
+              "value": "11124326"
+            },
+            {
+              "displayName": "故宫出版社",
+              "value": "126769624"
+            },
+            {
+              "displayName": "光明日报出版社",
+              "value": "16341989"
+            },
+            {
+              "displayName": "国际文化出版公司",
+              "value": "16342368"
+            },
+            {
+              "displayName": "国家行政学院出版社",
+              "value": "16337816"
+            },
+            {
+              "displayName": "国家图书馆出版社",
+              "value": "16633821"
+            },
+            {
+              "displayName": "海豚出版社",
+              "value": "3807988"
+            },
+            {
+              "displayName": "海洋出版社",
+              "value": "16343624"
+            },
+            {
+              "displayName": "红旗出版社",
+              "value": "15454402"
+            },
+            {
+              "displayName": "华乐出版社",
+              "value": "20425850"
+            },
+            {
+              "displayName": "华龄出版社",
+              "value": "16709884"
+            },
+            {
+              "displayName": "华文出版社",
+              "value": "15565084"
+            },
+            {
+              "displayName": "华夏出版社",
+              "value": "4553931"
+            },
+            {
+              "displayName": "华语教学出版社",
+              "value": "16387797"
+            },
+            {
+              "displayName": "化学工业出版社",
+              "value": "9514570"
+            },
+            {
+              "displayName": "机械工业出版社",
+              "value": "7289096"
+            },
+            {
+              "displayName": "教育科学出版社",
+              "value": "13078662"
+            },
+            {
+              "displayName": "金城出版社",
+              "value": "16343430"
+            },
+            {
+              "displayName": "经济管理出版社",
+              "value": "7290195"
+            },
+            {
+              "displayName": "经济科学出版社",
+              "value": "10897626"
+            },
+            {
+              "displayName": "经济日报出版社",
+              "value": "16334709"
+            },
+            {
+              "displayName": "九州出版社",
+              "value": "16333062"
+            },
+            {
+              "displayName": "开明出版社",
+              "value": "16430536"
+            },
+            {
+              "displayName": "科学技术文献出版社",
+              "value": "16359718"
+            },
+            {
+              "displayName": "科学普及出版社",
+              "value": "16351412"
+            },
+            {
+              "displayName": "连环画出版社",
+              "value": "16445324"
+            },
+            {
+              "displayName": "龙门书局",
+              "value": "4533223"
+            },
+            {
+              "displayName": "煤炭工业出版社",
+              "value": "16670235"
+            },
+            {
+              "displayName": "民主与建设出版社",
+              "value": "16383761"
+            },
+            {
+              "displayName": "民族出版社",
+              "value": "16542050"
+            },
+            {
+              "displayName": "农村读物出版社",
+              "value": "16389536"
+            },
+            {
+              "displayName": "企业管理出版社",
+              "value": "9228566"
+            },
+            {
+              "displayName": "气象出版社",
+              "value": "7317341"
+            },
+            {
+              "displayName": "清华大学出版社",
+              "value": "6166797"
+            },
+            {
+              "displayName": "求真出版社",
+              "value": "41905382"
+            },
+            {
+              "displayName": "群言出版社",
+              "value": "16380542"
+            },
+            {
+              "displayName": "群众出版社",
+              "value": "16381942"
+            },
+            {
+              "displayName": "人民出版社",
+              "value": "10131766"
+            },
+            {
+              "displayName": "人民东方出版传媒有限公司",
+              "value": "136668572"
+            },
+            {
+              "displayName": "人民法院出版社",
+              "value": "16331759"
+            },
+            {
+              "displayName": "人民交通出版社",
+              "value": "12191108"
+            },
+            {
+              "displayName": "人民教育出版社",
+              "value": "16326434"
+            },
+            {
+              "displayName": "人民美术出版社",
+              "value": "16361956"
+            },
+            {
+              "displayName": "人民日报出版社",
+              "value": "9670515"
+            },
+            {
+              "displayName": "人民体育出版社",
+              "value": "16456358"
+            },
+            {
+              "displayName": "人民卫生出版社",
+              "value": "16326962"
+            },
+            {
+              "displayName": "人民文学出版社",
+              "value": "16330839"
+            },
+            {
+              "displayName": "人民音乐出版社",
+              "value": "16379573"
+            },
+            {
+              "displayName": "人民邮电出版社",
+              "value": "10506970"
+            },
+            {
+              "displayName": "荣宝斋出版社",
+              "value": "16409937"
+            },
+            {
+              "displayName": "商务印书馆",
+              "value": "4533229"
+            },
+            {
+              "displayName": "商务印书馆国际有限公司",
+              "value": "4534098"
+            },
+            {
+              "displayName": "社会科学文献出版社",
+              "value": "10985783"
+            },
+            {
+              "displayName": "生活•读书•新知三联书店有限公司",
+              "value": "656056862"
+            },
+            {
+              "displayName": "生活书店出版有限公司",
+              "value": "529738324"
+            },
+            {
+              "displayName": "石油工业出版社",
+              "value": "16432096"
+            },
+            {
+              "displayName": "时事出版社",
+              "value": "6841539"
+            },
+            {
+              "displayName": "世界图书出版有限公司",
+              "value": "21734500"
+            },
+            {
+              "displayName": "世界知识出版社",
+              "value": "6842045"
+            },
+            {
+              "displayName": "书法出版社",
+              "value": "875846585"
+            },
+            {
+              "displayName": "台海出版社",
+              "value": "16326841"
+            },
+            {
+              "displayName": "天天出版社",
+              "value": "30166533"
+            },
+            {
+              "displayName": "团结出版社",
+              "value": "16337122"
+            },
+            {
+              "displayName": "外文出版社",
+              "value": "16329630"
+            },
+            {
+              "displayName": "外语教学与研究出版社",
+              "value": "7151726"
+            },
+            {
+              "displayName": "万国学术出版社",
+              "value": "28965546"
+            },
+            {
+              "displayName": "文化发展出版社",
+              "value": "780216426"
+            },
+            {
+              "displayName": "文化艺术出版社",
+              "value": "16323792"
+            },
+            {
+              "displayName": "文物出版社",
+              "value": "16332819"
+            },
+            {
+              "displayName": "五洲传播出版社",
+              "value": "16362902"
+            },
+            {
+              "displayName": "西苑出版社",
+              "value": "16338179"
+            },
+            {
+              "displayName": "现代出版社",
+              "value": "16420114"
+            },
+            {
+              "displayName": "现代教育出版社",
+              "value": "16370301"
+            },
+            {
+              "displayName": "线装书局",
+              "value": "4533236"
+            },
+            {
+              "displayName": "新华出版社",
+              "value": "7933837"
+            },
+            {
+              "displayName": "新世界出版社",
+              "value": "8929911"
+            },
+            {
+              "displayName": "新星出版社",
+              "value": "6903235"
+            },
+            {
+              "displayName": "学习出版社",
+              "value": "16672127"
+            },
+            {
+              "displayName": "学苑出版社",
+              "value": "5888125"
+            },
+            {
+              "displayName": "研究出版社",
+              "value": "18170320"
+            },
+            {
+              "displayName": "冶金工业出版社",
+              "value": "16422659"
+            },
+            {
+              "displayName": "语文出版社",
+              "value": "16403906"
+            },
+            {
+              "displayName": "知识产权出版社",
+              "value": "16518537"
+            },
+            {
+              "displayName": "知识出版社",
+              "value": "16361143"
+            },
+            {
+              "displayName": "中共党史出版社",
+              "value": "10892656"
+            },
+            {
+              "displayName": "中共中央党校出版社",
+              "value": "10383510"
+            },
+            {
+              "displayName": "中国ISBN中心",
+              "value": "4533214"
+            },
+            {
+              "displayName": "中国标准出版社",
+              "value": "13549183"
+            },
+            {
+              "displayName": "中国财富出版社",
+              "value": "151088166"
+            },
+            {
+              "displayName": "中国财政经济出版社",
+              "value": "7300769"
+            },
+            {
+              "displayName": "中国藏学出版社",
+              "value": "16658229"
+            },
+            {
+              "displayName": "中国城市出版社",
+              "value": "7297455"
+            },
+            {
+              "displayName": "中国传媒大学出版社",
+              "value": "6627319"
+            },
+            {
+              "displayName": "中国大百科全书出版社",
+              "value": "16341101"
+            },
+            {
+              "displayName": "中国大地出版社",
+              "value": "16478717"
+            },
+            {
+              "displayName": "中国档案出版社",
+              "value": "16332651"
+            },
+            {
+              "displayName": "中国地图出版社",
+              "value": "16337862"
+            },
+            {
+              "displayName": "中国电力出版社",
+              "value": "11473011"
+            },
+            {
+              "displayName": "中国电影出版社",
+              "value": "16323994"
+            },
+            {
+              "displayName": "中国发展出版社",
+              "value": "16341202"
+            },
+            {
+              "displayName": "中国法制出版社",
+              "value": "16338269"
+            },
+            {
+              "displayName": "中国方正出版社",
+              "value": "16484970"
+            },
+            {
+              "displayName": "中国纺织出版社",
+              "value": "9239568"
+            },
+            {
+              "displayName": "中国妇女出版社",
+              "value": "16335946"
+            },
+            {
+              "displayName": "中国工人出版社",
+              "value": "16329539"
+            },
+            {
+              "displayName": "中国工商出版社",
+              "value": "16707296"
+            },
+            {
+              "displayName": "中国广播影视出版社",
+              "value": "688722591"
+            },
+            {
+              "displayName": "中国国际广播出版社",
+              "value": "6627822"
+            },
+            {
+              "displayName": "中国海关出版社",
+              "value": "9892841"
+            },
+            {
+              "displayName": "中国和平出版社",
+              "value": "16549915"
+            },
+            {
+              "displayName": "中国华侨出版社",
+              "value": "16346686"
+            },
+            {
+              "displayName": "中国画报出版社",
+              "value": "8933164"
+            },
+            {
+              "displayName": "中国环境出版有限责任公司",
+              "value": "609602387"
+            },
+            {
+              "displayName": "中国计划出版社",
+              "value": "16324483"
+            },
+            {
+              "displayName": "中国检察出版社",
+              "value": "16439124"
+            },
+            {
+              "displayName": "中国建材工业出版社",
+              "value": "15464147"
+            },
+            {
+              "displayName": "中国建筑工业出版社",
+              "value": "11466664"
+            },
+            {
+              "displayName": "中国金融出版社",
+              "value": "7086108"
+            },
+            {
+              "displayName": "中国经济出版社",
+              "value": "6906005"
+            },
+            {
+              "displayName": "科学出版社",
+              "value": "15323177"
+            },
+            {
+              "displayName": "中国科学技术出版社",
+              "value": "7289554"
+            },
+            {
+              "displayName": "中国劳动社会保障出版社",
+              "value": "16351092"
+            },
+            {
+              "displayName": "中国林业出版社",
+              "value": "16356554"
+            },
+            {
+              "displayName": "中国旅游出版社",
+              "value": "3819717"
+            },
+            {
+              "displayName": "中国盲文出版社",
+              "value": "16401936"
+            },
+            {
+              "displayName": "中国民航出版社",
+              "value": "16623152"
+            },
+            {
+              "displayName": "中国民主法制出版社",
+              "value": "16388451"
+            },
+            {
+              "displayName": "中国民族摄影艺术出版社",
+              "value": "8913740"
+            },
+            {
+              "displayName": "中国农业出版社",
+              "value": "14252974"
+            },
+            {
+              "displayName": "中国农业大学出版社",
+              "value": "16365709"
+            },
+            {
+              "displayName": "中国农业科学技术出版社",
+              "value": "16508824"
+            },
+            {
+              "displayName": "中国青年出版社",
+              "value": "6614188"
+            },
+            {
+              "displayName": "中国轻工业出版社",
+              "value": "16325998"
+            },
+            {
+              "displayName": "中国人口出版社",
+              "value": "14071776"
+            },
+            {
+              "displayName": "中国人民大学出版社",
+              "value": "7286425"
+            },
+            {
+              "displayName": "中国人民公安大学出版社",
+              "value": "16432487"
+            },
+            {
+              "displayName": "中国人事出版社",
+              "value": "16389460"
+            },
+            {
+              "displayName": "中国三峡出版社",
+              "value": "7287218"
+            },
+            {
+              "displayName": "中国商务出版社",
+              "value": "16372634"
+            },
+            {
+              "displayName": "中国商业出版社",
+              "value": "16331403"
+            },
+            {
+              "displayName": "中国少年儿童出版社",
+              "value": "16323939"
+            },
+            {
+              "displayName": "中国社会出版社",
+              "value": "10369123"
+            },
+            {
+              "displayName": "中国社会科学出版社",
+              "value": "8056665"
+            },
+            {
+              "displayName": "中国摄影出版社",
+              "value": "10896364"
+            },
+            {
+              "displayName": "中国石化出版社",
+              "value": "16350382"
+            },
+            {
+              "displayName": "中国时代经济出版社",
+              "value": "16344159"
+            },
+            {
+              "displayName": "中国市场出版社",
+              "value": "10370033"
+            },
+            {
+              "displayName": "中国书籍出版社",
+              "value": "10883267"
+            },
+            {
+              "displayName": "中国水利水电出版社",
+              "value": "16341157"
+            },
+            {
+              "displayName": "中国税务出版社",
+              "value": "16362727"
+            },
+            {
+              "displayName": "中国铁道出版社",
+              "value": "11923772"
+            },
+            {
+              "displayName": "中国统计出版社",
+              "value": "16384029"
+            },
+            {
+              "displayName": "中国文联出版社",
+              "value": "16323863"
+            },
+            {
+              "displayName": "中国文史出版社",
+              "value": "16337585"
+            },
+            {
+              "displayName": "中国戏剧出版社",
+              "value": "7556853"
+            },
+            {
+              "displayName": "中国协和医科大学出版社",
+              "value": "16478117"
+            },
+            {
+              "displayName": "中国言实出版社",
+              "value": "10497386"
+            },
+            {
+              "displayName": "中国医药科技出版社",
+              "value": "16331498"
+            },
+            {
+              "displayName": "中国友谊出版公司",
+              "value": "7935887"
+            },
+            {
+              "displayName": "中国宇航出版社",
+              "value": "16353281"
+            },
+            {
+              "displayName": "中国原子能出版传媒有限公司",
+              "value": "104258814"
+            },
+            {
+              "displayName": "中国长安出版社",
+              "value": "16326395"
+            },
+            {
+              "displayName": "中国政法大学出版社",
+              "value": "16362396"
+            },
+            {
+              "displayName": "中国质检出版社",
+              "value": "105349809"
+            },
+            {
+              "displayName": "中国致公出版社",
+              "value": "16329983"
+            },
+            {
+              "displayName": "中国中医药出版社",
+              "value": "16327703"
+            },
+            {
+              "displayName": "中航出版传媒有限责任公司",
+              "value": "108724160"
+            },
+            {
+              "displayName": "中华工商联合出版社",
+              "value": "7486247"
+            },
+            {
+              "displayName": "中华书局",
+              "value": "4533200"
+            },
+            {
+              "displayName": "中信出版集团",
+              "value": "45966312"
+            },
+            {
+              "displayName": "中央编译出版社",
+              "value": "7112667"
+            },
+            {
+              "displayName": "中央广播电视大学出版社",
+              "value": "16332888"
+            },
+            {
+              "displayName": "中央民族大学出版社",
+              "value": "16502139"
+            },
+            {
+              "displayName": "中央文献出版社",
+              "value": "16610003"
+            },
+            {
+              "displayName": "中央音乐学院出版社",
+              "value": "17096848"
+            },
+            {
+              "displayName": "中医古籍出版社",
+              "value": "16366769"
+            },
+            {
+              "displayName": "中译出版社",
+              "value": "897116343"
+            },
+            {
+              "displayName": "宗教文化出版社",
+              "value": "16331041"
+            },
+            {
+              "displayName": "作家出版社",
+              "value": "8601058"
+            },
+            {
+              "displayName": "西南师范大学出版社",
+              "value": "16460425"
+            },
+            {
+              "displayName": "重庆出版社",
+              "value": "7630480"
+            },
+            {
+              "displayName": "重庆大学出版社",
+              "value": "16335451"
+            },
+            {
+              "displayName": "白山出版社",
+              "value": "16630682"
+            },
+            {
+              "displayName": "第二军医大学出版社",
+              "value": "16422132"
+            },
+            {
+              "displayName": "第四军医大学出版社",
+              "value": "16677866"
+            },
+            {
+              "displayName": "国防大学出版社",
+              "value": "16833063"
+            },
+            {
+              "displayName": "国防工业出版社",
+              "value": "16389338"
+            },
+            {
+              "displayName": "国防科技大学出版社",
+              "value": "16647232"
+            },
+            {
+              "displayName": "海潮出版社",
+              "value": "16336232"
+            },
+            {
+              "displayName": "黄河出版社",
+              "value": "16477421"
+            },
+            {
+              "displayName": "解放军出版社",
+              "value": "16373487"
+            },
+            {
+              "displayName": "解放军文艺出版社",
+              "value": "16414535"
+            },
+            {
+              "displayName": "金盾出版社",
+              "value": "16338980"
+            },
+            {
+              "displayName": "军事科学出版社",
+              "value": "16584827"
+            },
+            {
+              "displayName": "军事医学出版社",
+              "value": "22803525"
+            },
+            {
+              "displayName": "军事谊文出版社",
+              "value": "16582793"
+            },
+            {
+              "displayName": "昆仑出版社",
+              "value": "16374099"
+            },
+            {
+              "displayName": "蓝天出版社",
+              "value": "8067796"
+            },
+            {
+              "displayName": "人民军医出版社",
+              "value": "16324017"
+            },
+            {
+              "displayName": "人民武警出版社",
+              "value": "16887163"
+            },
+            {
+              "displayName": "新时代出版社",
+              "value": "16966710"
+            },
+            {
+              "displayName": "星球地图出版社",
+              "value": "16678934"
+            },
+            {
+              "displayName": "长城出版社",
+              "value": "16402242"
+            },
+            {
+              "displayName": "长虹出版公司",
+              "value": "19530889"
+            },
+            {
+              "displayName": "长征出版社",
+              "value": "16340738"
+            },
+            {
+              "displayName": "中国航海图书出版社",
+              "value": "18972291"
+            },
+            {
+              "displayName": "国家开放大学出版社",
+              "value": "1931769246"
+            },
+            {
+              "displayName": "人民交通出版社股份有限公司",
+              "value": "645364956"
+            },
+            {
+              "displayName": "other",
+              "value": "-1"
+            }
+          ],
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-122216620",
+          "name": "出版社名称",
+          "type": "singleCheck"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "requiredRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "true"
+            },
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "100"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-2043189",
+          "name": "作者",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": [
+            {
+              "displayName": "台湾省",
+              "value": "52865"
+            },
+            {
+              "displayName": "日本",
+              "value": "27023"
+            },
+            {
+              "displayName": "韩国",
+              "value": "27019"
+            },
+            {
+              "displayName": "美国",
+              "value": "27409"
+            },
+            {
+              "displayName": "俄罗斯",
+              "value": "3314460"
+            },
+            {
+              "displayName": "法国",
+              "value": "27412"
+            },
+            {
+              "displayName": "德国",
+              "value": "27413"
+            },
+            {
+              "displayName": "英国",
+              "value": "27411"
+            },
+            {
+              "displayName": "中国大陆",
+              "value": "27772"
+            },
+            {
+              "displayName": "其他",
+              "value": "20213"
+            }
+          ],
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-18821503",
+          "name": "作者地区",
+          "type": "singleCheck"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "100"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-46394856",
+          "name": "译者",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "100"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-46412378",
+          "name": "编者",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": "include",
+              "name": "maxLengthRule",
+              "target": null,
+              "unit": "byte",
+              "url": null,
+              "value": "100"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-122216357",
+          "name": "开本",
+          "type": "input"
+        }
+      ],
+      "complexValue": [
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-2043189",
+          "name": "作者",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-46412378",
+          "name": "编者",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-18821503",
+          "name": "作者地区",
+          "type": "singleCheck"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-46602357",
+          "name": "书名",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-24229",
+          "name": "主题",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-218140172",
+          "name": "包册数",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-2043183",
+          "name": "书名",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-231236266",
+          "name": "出版时间",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-20000",
+          "name": "品牌",
+          "type": "singleCheck"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-46398806",
+          "name": "定价",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-122216620",
+          "name": "出版社名称",
+          "type": "singleCheck"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-122216357",
+          "name": "开本",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-122216545",
+          "name": "是否是套装",
+          "type": "singleCheck"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-46394856",
+          "name": "译者",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-1636953",
+          "name": "ISBN编号",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-217554838",
+          "name": "内文用纸材质",
+          "type": "singleCheck"
+        },
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "p-218122202",
+          "name": "页数",
+          "type": "input"
+        }
+      ],
+      "options": null,
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "catProp",
+      "name": "类目属性",
+      "type": "complex"
+    },
+    {
+      "labelGroup": null,
+      "rules": null,
+      "fields": [],
+      "complexValue": null,
+      "options": null,
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "saleProp",
+      "name": "",
+      "type": "complex"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "requiredRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "true"
+        }
+      ],
+      "fields": null,
+      "complexValue": null,
+      "options": [
+        {
+          "displayName": "相对发货时间",
+          "value": "2"
+        }
+      ],
+      "values": null,
+      "complexValues": null,
+      "value": {
+        "value": "2",
+        "img": null,
+        "inputValue": null
+      },
+      "id": "deliveryTimeType",
+      "name": "发货时效",
+      "type": "singleCheck"
+    },
+    {
+      "labelGroup": null,
+      "rules": null,
+      "fields": null,
+      "complexValue": null,
+      "options": [
+        {
+          "displayName": "24小时内发货",
+          "value": "1"
+        },
+        {
+          "displayName": "48小时内发货",
+          "value": "2"
+        }
+      ],
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "tbDeliveryTime",
+      "name": "",
+      "type": "singleCheck"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "requiredRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "true"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": "not include",
+          "name": "maxValueRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "10000000"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": "include",
+          "name": "minValueRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "0"
+        }
+      ],
+      "fields": null,
+      "complexValue": null,
+      "options": null,
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "price",
+      "name": "特价",
+      "type": "input"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "requiredRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "true"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": "not include",
+          "name": "maxValueRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "100000000"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "regexRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "([1-9][0-9]+|[0-9])"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "valueTypeRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "integer"
+        }
+      ],
+      "fields": null,
+      "complexValue": null,
+      "options": null,
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "quantity",
+      "name": "总数量",
+      "type": "input"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": "include",
+          "name": "maxLengthRule",
+          "target": null,
+          "unit": "byte",
+          "url": null,
+          "value": "64"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "valueTypeRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "text"
+        }
+      ],
+      "fields": null,
+      "complexValue": null,
+      "options": null,
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "outerId",
+      "name": "商家编码",
+      "type": "input"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "tipRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "<b style='color:#ff6600'>全网低价建议填写为特价的1.1倍至1.5倍之间</b>"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "requiredRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "true"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": "not include",
+          "name": "maxValueRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "10000000"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": "include",
+          "name": "minValueRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "0"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "regexRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "^\\d+(\\.\\d{0,3})?$"
+        }
+      ],
+      "fields": null,
+      "complexValue": null,
+      "options": null,
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "marketPrice",
+      "name": "全网低价",
+      "type": "input"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "tipRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "宝贝主图大小不能超过3MB；700*700 以上图片上传后宝贝详情页自动提供放大镜功能。"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "requiredRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "true"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": "include",
+          "name": "maxTargetSizeRule",
+          "target": null,
+          "unit": "byte",
+          "url": null,
+          "value": "3145728"
+        }
+      ],
+      "fields": [
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "valueTypeRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "url"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "images_0",
+          "name": "宝贝图片",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "valueTypeRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "url"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "images_1",
+          "name": "宝贝图片",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "valueTypeRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "url"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "images_2",
+          "name": "宝贝图片",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "valueTypeRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "url"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "images_3",
+          "name": "宝贝图片",
+          "type": "input"
+        },
+        {
+          "labelGroup": null,
+          "rules": [
+            {
+              "dependGroup": null,
+              "desc": null,
+              "exProperty": null,
+              "name": "valueTypeRule",
+              "target": null,
+              "unit": null,
+              "url": null,
+              "value": "url"
+            }
+          ],
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "images_4",
+          "name": "宝贝图片",
+          "type": "input"
+        }
+      ],
+      "complexValue": null,
+      "options": null,
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "images",
+      "name": "宝贝图片",
+      "type": "complex"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": "include",
+          "name": "maxLengthRule",
+          "target": null,
+          "unit": "byte",
+          "url": null,
+          "value": "200000"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "valueTypeRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "text"
+        }
+      ],
+      "fields": null,
+      "complexValue": null,
+      "options": null,
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "desc",
+      "name": "商品描述",
+      "type": "input"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "tipRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "拍下减库存，存在<a target='blank' href='//taobaosell.bbs.taobao.com/detail.html?appId=23012&postId=2560776'>恶拍风险</a>；<br>付款减库存，存在<a target='blank' href='//taobaosell.bbs.taobao.com/detail.html?appId=23012&postId=2608994'>超卖风险</a>。"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "requiredRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "true"
+        }
+      ],
+      "fields": null,
+      "complexValue": null,
+      "options": [
+        {
+          "displayName": "买家拍下减库存",
+          "value": "1"
+        },
+        {
+          "displayName": "买家付款减库存",
+          "value": "0"
+        }
+      ],
+      "values": null,
+      "complexValues": null,
+      "value": {
+        "value": "0",
+        "img": null,
+        "inputValue": null
+      },
+      "id": "subStock",
+      "name": "库存计数",
+      "type": "singleCheck"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "requiredRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "true"
+        }
+      ],
+      "fields": [
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": [
+            {
+              "displayName": "test1",
+              "value": "33053294660"
+            }
+          ],
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "template",
+          "name": "运费模板",
+          "type": "singleCheck"
+        }
+      ],
+      "complexValue": [
+        {
+          "labelGroup": null,
+          "rules": null,
+          "fields": null,
+          "complexValue": null,
+          "options": null,
+          "values": null,
+          "complexValues": null,
+          "value": null,
+          "id": "template",
+          "name": "运费模板",
+          "type": "singleCheck"
+        }
+      ],
+      "options": null,
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "tbExtractWay",
+      "name": "运费",
+      "type": "complex"
+    },
+    {
+      "labelGroup": null,
+      "rules": null,
+      "fields": null,
+      "complexValue": null,
+      "options": [
+        {
+          "displayName": "是",
+          "value": "1"
+        },
+        {
+          "displayName": "否",
+          "value": "0"
+        }
+      ],
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "invoice",
+      "name": "提供发票",
+      "type": "singleCheck"
+    },
+    {
+      "labelGroup": null,
+      "rules": null,
+      "fields": null,
+      "complexValue": null,
+      "options": [
+        {
+          "displayName": "是",
+          "value": "1"
+        },
+        {
+          "displayName": "否",
+          "value": "0"
+        }
+      ],
+      "values": null,
+      "complexValues": null,
+      "value": null,
+      "id": "warranty",
+      "name": "保修服务",
+      "type": "singleCheck"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "tipRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "凡使用支付宝服务付款购买本店商品，若存在质量问题或与描述不符，本店将主动提供退换货服务并承担来回邮费"
+        }
+      ],
+      "fields": null,
+      "complexValue": null,
+      "options": [
+        {
+          "displayName": "是",
+          "value": "1"
+        },
+        {
+          "displayName": "否",
+          "value": "0"
+        }
+      ],
+      "values": null,
+      "complexValues": null,
+      "value": {
+        "value": "1",
+        "img": null,
+        "inputValue": null
+      },
+      "id": "sellPromise",
+      "name": "退换货承诺",
+      "type": "singleCheck"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "tipRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": " 承诺更好服务可通过【<a href='//xiaobao.taobao.com/service/serviceList.htm' target='_blank'>交易合约</a>】设置"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "readOnlyRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "true"
+        }
+      ],
+      "fields": null,
+      "complexValue": null,
+      "options": [
+        {
+          "displayName": "是",
+          "value": "1"
+        },
+        {
+          "displayName": "否",
+          "value": "0"
+        }
+      ],
+      "values": null,
+      "complexValues": null,
+      "value": {
+        "value": "1",
+        "img": null,
+        "inputValue": null
+      },
+      "id": "sevenDaySupport",
+      "name": "服务承诺：该类商品，必须支持【七天退货】服务",
+      "type": "singleCheck"
+    },
+    {
+      "labelGroup": null,
+      "rules": [
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "tipRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "定时上架的商品在上架前请到“仓库中的宝贝”里编辑商品。"
+        },
+        {
+          "dependGroup": null,
+          "desc": null,
+          "exProperty": null,
+          "name": "requiredRule",
+          "target": null,
+          "unit": null,
+          "url": null,
+          "value": "true"
+        }
+      ],
+      "fields": null,
+      "complexValue": null,
+      "options": [
+        {
+          "displayName": "立刻上架",
+          "value": "0"
+        },
+        {
+          "displayName": "定时上架",
+          "value": "1"
+        },
+        {
+          "displayName": "放入仓库",
+          "value": "2"
+        }
+      ],
+      "values": null,
+      "complexValues": null,
+      "value": {
+        "value": "0",
+        "img": null,
+        "inputValue": null
+      },
+      "id": "startTime",
+      "name": "上架时间",
+      "type": "singleCheck"
+    }
+  ]
+}
