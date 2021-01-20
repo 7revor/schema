@@ -7,12 +7,13 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import run from './core/test';
+run()
 export default {
   name: 'App',
   components: {
     HelloWorld
-  }
+  },
 }
 </script>
 
