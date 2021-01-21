@@ -29,12 +29,11 @@ export class SingleCheckField extends Field {
     */
   defineValue() {
     this.defineElementMapping('value', () => {
-      const { value, inputValue } = this.valuePointer.value || {};
+      const { value } = this.valuePointer.value;
       if (!value) return { value: null, display: null };
       return {
         value,
-        inputValue,
-        display: inputValue || this.optionMap.get(value),
+        display: this.optionMap.get(value),
       }
     })
   }

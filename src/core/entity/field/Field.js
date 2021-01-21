@@ -5,8 +5,9 @@ import { Rules } from '../Rule';
  * 标准Field基类
  */
 export class Field extends Tag {
-  constructor(field) {
+  constructor(field, parent) {
     super(Tag.Tags.Field);
+    parent && this.define('parent', parent);
     const { id, name, type, rules } = field;
     /**
      * 用于描述唯一主键，以商品的标题为例，id=“title”。
@@ -32,12 +33,21 @@ export class Field extends Tag {
      * 定义value取值位置
      */
     this.defineValuePointer(this.$inner.element);
+
   }
   /**
    * 定义value取值位置
    */
   defineValuePointer(pointer) {
     this.define('valuePointer', pointer, true)
+  }
+
+  getAncestor() {
+    let parent = this;
+    while (this.parent) {
+      parent = this.parent;
+    }
+    return parent
   }
 }
 

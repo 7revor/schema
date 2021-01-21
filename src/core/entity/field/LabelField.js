@@ -1,8 +1,8 @@
 import { Field } from "./Field";
 import { LabelGroup } from '../Label';
 export class LabelField extends Field {
-  constructor(field) {
-    super(field);
+  constructor(field, parent) {
+    super(field, parent);
     const { labelGroup } = field;
     /**
      * 描述信息

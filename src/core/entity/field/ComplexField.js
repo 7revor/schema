@@ -1,10 +1,11 @@
 import { Fields, getFieldClass } from "./index";
-import { ComplexValueGroup } from "../value/ComplexValue";
+import { ComplexValue } from "../value/ComplexValue";
 import { Field } from "./Field";
 
 export class ComplexField extends Field {
-  constructor(field) {
-    super(field);
+  constructor(field, parent) {
+    super(field, parent);
+    this.define('fieldMap', new Map());
     let { fields, complexValue } = field;
     /**
      * 未初始化默认值
@@ -12,12 +13,11 @@ export class ComplexField extends Field {
     if (!complexValue) {
       complexValue = fields.map(field => ({ id: field.id, name: field.name, type: field.type }))
     }
-    this.define('fieldMap', new Map());
-    this.setElement('complexValue', new ComplexValueGroup(complexValue));
+    this.setElement('value', new ComplexValue(complexValue));
     /**
      * 添加映射
      */
-    this.$inner.element.complexValue.forEach(complex => {
+    this.$inner.element.value.forEach(complex => {
       this.fieldMap.set(complex.id, complex)
     })
     /**
@@ -26,11 +26,24 @@ export class ComplexField extends Field {
     const fieldList = new Fields();
     for (let field of fields) {
       const Clazz = getFieldClass(field.type);
-      const instance = new Clazz(field);
+      const instance = new Clazz(field, this);
       const valueField = this.fieldMap.get(instance.id);
-      instance.defineValuePointer(valueField.$inner.element);
+      instance.defineValuePointer(valueField.$inner.element);  // 这里要拿到value xml 子节点的引用
       fieldList.push(instance)
     }
     this.setElement('fields', fieldList, true);
+    this.defineValue();
+  }
+
+  defineValue() {
+    this.defineElementMapping('value', () => {
+      return [...this.fields.map(field => {
+        return {
+          id: field.id,
+          name: field.name,
+          value: field.value
+        }
+      })];
+    })
   }
 }

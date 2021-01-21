@@ -4,8 +4,8 @@ import { Value } from "../value/Value";
  * 输入字段
  */
 export class InputField extends Field {
-  constructor(field) {
-    super(field);
+  constructor(field,parent) {
+    super(field,parent);
     const { value } = field;
     /**
      * 设置默认值
@@ -22,7 +22,7 @@ export class InputField extends Field {
      */
   defineValue() {
     this.defineElementMapping('value', () => {
-      const { value } = this.valuePointer.value;
+      const { value } = this.valuePointer.value; // 默认为this.$inner.element
       return {
         value,
         display: value

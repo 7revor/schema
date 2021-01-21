@@ -121,8 +121,15 @@ const TagGroupTags = {
   /**
    * 复杂值集合
    */
-  ComplexValue: 'complex-value'
-
+  ComplexValue: 'complex-value',
+  /**
+   * 多个复杂值集合
+   */
+  ComplexValues: 'complex-values',
+  /**
+   * 多个复杂值集合（虚拟）
+   */
+  ComplexValuesGroup: 'complex-values-group',
 }
 const tagGrouptags = Object.values(TagGroupTags);
 

@@ -3,8 +3,8 @@ import { Options } from "../Option";
 import { Values, Value } from "../value/Value";
 
 export class MultiCheckField extends Field {
-  constructor(field) {
-    super(field);
+  constructor(field, parent) {
+    super(field, parent);
     const { options, values } = field;
     this.define('optionMap', new Map())
     /**
@@ -15,7 +15,7 @@ export class MultiCheckField extends Field {
       this.setElement('options', opts, true);
       opts.forEach(opt => this.optionMap.set(opt.value, opt.displayName))
     }
-    this.setElement('values', new Values(values))
+    this.setElement('value', new Values(values))
     /**
     * 添加取值映射
     */
@@ -26,15 +26,14 @@ export class MultiCheckField extends Field {
     */
   defineValue() {
     this.defineElementMapping('value', () => {
-      const values = this.valuePointer.values || {};
+      const values = this.valuePointer.value;
       if (!values) return [];
-      return values.map(({ value, inputValue }) => {
+      return [...values.map(({ value }) => {
         return {
           value,
-          inputValue,
-          display: inputValue || this.optionMap.get(value),
+          display: this.optionMap.get(value),
         }
-      })
+      })]
     })
   }
   /**

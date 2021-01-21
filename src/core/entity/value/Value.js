@@ -47,10 +47,8 @@ export class Value extends Tag {
   constructor(option) {
     if (!option) option = {};
     super(Tag.Tags.Value);
-    const { inputValue, img, value } = option;
-    this.setAttr('inputValue', inputValue, true);
-    this.setAttr('value', value, true);
-    this.setAttr('img', img, true);
+    const { value } = option;
+    this.setAttr('value', value, true, (inner) => inner.attr.value);
   }
 }
 /**
