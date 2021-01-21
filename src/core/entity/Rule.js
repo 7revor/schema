@@ -1,4 +1,4 @@
-import { Tag } from "../base/Tag";
+import { Tag, TagGroup } from "../base/Tag";
 
 /**
  * 所有规则类型
@@ -75,6 +75,10 @@ const Type = {
   SET_RULE: "setRule",
   MAX_DECIMAL_DIGITS_RULE: "maxDecimalDigitsRule",
   MIN_DECIMAL_DIGITS_RULE: "minDecimalDigitsRule",
+  /**
+   * 属性值RULE
+   */
+  VALUE_ATTRIBUTE_RULE: "valueAttributeRule"
 }
 const types = Object.values(Type);
 /**
@@ -86,7 +90,18 @@ export class Rule extends Tag {
     const { name, value } = option;
     if (!name || !value) throw new Error('Rule must contain name and value property!')
     if (!types.includes(name)) throw new Error(`Rule ${name} does not exist!`);
-    Object.assign(this, option);
+    this.setAttr('name', name)
+    this.defineAttrMapping('name', false);
+    this.setAttr('value', value)
+    this.defineAttrMapping('value', false);
   }
 }
 Rule.Type = Type;
+/**
+ * 字段列表
+ */
+export class Rules extends TagGroup {
+  constructor(rules) {
+    super(TagGroup.Tags.Rules, Rule, rules);
+  }
+}

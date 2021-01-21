@@ -1,4 +1,4 @@
-import { Tag } from "../base/Tag";
+import { Tag, TagGroup } from "../../base/Tag";
 /**
  * value类型
  */
@@ -45,11 +45,20 @@ const Type = {
  */
 export class Value extends Tag {
   constructor(option) {
+    if (!option) option = {};
     super(Tag.Tags.Value);
     const { inputValue, img, value } = option;
-    this.inputValue = inputValue;
-    this.img = img;
-    this.value = value;
+    this.setAttr('inputValue', inputValue, true);
+    this.setAttr('value', value, true);
+    this.setAttr('img', img, true);
+  }
+}
+/**
+ * 值类型集合
+ */
+export class Values extends TagGroup {
+  constructor(values) {
+    super(TagGroup.Tags.Values, Value, values);
   }
 }
 Value.Type = Type;
