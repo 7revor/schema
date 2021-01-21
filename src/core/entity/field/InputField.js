@@ -4,8 +4,8 @@ import { Value } from "../value/Value";
  * 输入字段
  */
 export class InputField extends Field {
-  constructor(field,parent) {
-    super(field,parent);
+  constructor(field, parent) {
+    super(field, parent);
     const { value } = field;
     /**
      * 设置默认值

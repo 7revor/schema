@@ -48,7 +48,8 @@ export class Value extends Tag {
     if (!option) option = {};
     super(Tag.Tags.Value);
     const { value } = option;
-    this.setAttr('value', value, true, (inner) => inner.attr.value);
+    Object.defineProperty(this.$inner, 'element', { value, enumerable: true });
+    this.defineElementMapping('value', () => this.$inner.element)
   }
 }
 /**
