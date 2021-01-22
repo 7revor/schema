@@ -73,7 +73,7 @@ export class Tag {
   getAttr() {
     return this.$inner.attr;
   }
-  
+
   getElement() {
     return this.$inner.element;
   }
@@ -145,7 +145,7 @@ const tagGrouptags = Object.values(TagGroupTags);
  * 基础schema标签集合
  */
 export class TagGroup extends Array {
-  constructor(tag, T, children) {
+  constructor(tag, T, children, ...args) {
     super();
     if (!tagGrouptags.includes(tag)) throw new Error(`Tag ${tag} does not exist!`);
     if (!T) throw new Error("TagGroup must construct with a child type!");
@@ -154,7 +154,7 @@ export class TagGroup extends Array {
     this.define('$inner', { T })
     if (Array.isArray(children)) {
       for (let child of children) {
-        this.push(new T(child))
+        this.push(new T(child, ...args))
       }
     }
   }

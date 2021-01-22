@@ -1,6 +1,8 @@
 import { Tag } from "../../base/Tag";
-import { isLegalType } from '../Type';
+import { isLegalType, Type } from '../Type';
 import { Rules } from '../Rule';
+
+export class ValueFieldList extends Array { }
 /**
  * 标准Field基类
  */
@@ -51,10 +53,25 @@ export class Field extends Tag {
   initRelation(parent) {
     if (parent) {
       this.define('parent', parent);                // 定义父类
-      this.getAncestor().child.set(this.id, this);  // 为祖先设置子类映射
-    } else {
-      this.define('child', new Map());              // 定义子类集合（顶级字段）
     }
+  }
+
+  setValueField(field) {
+    const valueField = this.valueField;
+    if (valueField) {
+      if (valueField instanceof ValueFieldList) valueField.push(field)
+      else {
+        const list = new ValueFieldList();
+        list.push(valueField, field);
+        this.define('valueField', list, true)
+      }
+    } else {
+      this.define('valueField', field, true)
+    }
+  }
+
+  getValueField() {
+    return this.isTopest() ? this.getElement() : this.valueField;
   }
 
   /**

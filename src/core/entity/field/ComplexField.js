@@ -1,5 +1,5 @@
 import { Fields } from "./index";
-import { ComplexValueGroup, recursionValue } from "../value/ComplexValue";
+import { ComplexValueGroup, recursionValue } from "../value/ValueField";
 import { Field } from "./Field";
 /**
  * 复杂类型
@@ -20,12 +20,14 @@ export class ComplexField extends Field {
        * 递归设置默认值
        */
       const initValue = [];
-      recursionValue(initValue, this, complexValue||complexValues);
+      recursionValue(initValue, this, complexValue || complexValues);
       /**
         * 设置初始值（顶级字段映射）
         */
-      this.setElement('value', new ComplexValueGroup(initValue));
+      this.setElement('value', new ComplexValueGroup(initValue, this));
     }
   }
-
+  getValue() {
+    return this.getElement().value;
+  }
 }

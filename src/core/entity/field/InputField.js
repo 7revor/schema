@@ -1,4 +1,4 @@
-import { Field } from "./Field";
+import { Field, ValueFieldList } from "./Field";
 import { Value } from "../value/Value";
 /**
  * 输入字段
@@ -15,30 +15,27 @@ export class InputField extends Field {
         * 设置默认值
         */
       this.setElement('value', new Value(value, this.rules));
-      /**
-        * 添加映射(只有顶级字段含有value信息)
-        */
-      this.defineElementMapping('value', () => {
-        const { value } = this.getElement().value; // 默认为this.$inner.element
-        return {
-          value,
-          display: value
-        }
-      })
-    } else {
-      /**
-       * 子字段，关联顶级字段的value属性
-       */
-      const ancestor = this.getAncestor();
-
-
     }
+
+    /**
+      * 添加映射(只有顶级字段含有value信息)
+      */
+    this.defineElementMapping('value', () => {
+      const valieField = this.getValueField();
+      if (valieField instanceof ValueFieldList) {
+        return [...valieField.map(field => ({ value: field.value.value, display: field.value.value }))]
+      } else {
+        return {
+          value: valieField.value.value,
+          display: valieField.value.value
+        }
+      }
+    })
   }
   /**
    * 设置新值
    */
   setValue(value) {
-    const pointer = this.valuePointer;
-    pointer.value = new Value({ value });
+
   }
 }

@@ -1,4 +1,4 @@
-import { Field } from "./Field";
+import { Field, ValueFieldList } from "./Field";
 import { Options } from "../Option";
 import { Values, Value } from "../value/Value";
 
@@ -9,7 +9,7 @@ export class MultiCheckField extends Field {
     /**
      * 选项映射
      */
-    this.define('optionMap', new Map())
+    this.define('optionMap', new Map());
     /**
      * 选项
      */
@@ -20,17 +20,30 @@ export class MultiCheckField extends Field {
     }
     if (this.isTopest()) {
       this.setElement('value', new Values(values));
-      this.defineElementMapping('value', () => {
-        const values = this.getElement().value;
-        if (!values) return [];
-        return [...values.map(({ value }) => {
+    }
+    /**
+      * 添加映射(只有顶级字段含有value信息)
+      */
+    this.defineElementMapping('value', () => {
+      const valueField = this.getValueField();
+      if (valueField instanceof ValueFieldList) {
+        return [...valueField.map(field => {
+          return {
+            value: field.value.value,
+            display: this.optionMap.get(field.value.value),
+            inputValue: field.value.inputValue
+          }
+        })]
+      } else {
+        return [...valueField.value.map(({ value, inputValue }) => {
           return {
             value,
+            inputValue,
             display: this.optionMap.get(value),
           }
         })]
-      })
-    }
+      }
+    })
 
   }
   /**
