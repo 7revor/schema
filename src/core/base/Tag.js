@@ -69,6 +69,14 @@ export class Tag {
     delete this.$inner.element[key];
     delete this[key];
   }
+
+  getAttr() {
+    return this.$inner.attr;
+  }
+  
+  getElement() {
+    return this.$inner.element;
+  }
   /**
    * 定义非枚举属性
    */

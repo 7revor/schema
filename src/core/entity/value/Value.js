@@ -45,11 +45,17 @@ const Type = {
  */
 export class Value extends Tag {
   constructor(option) {
-    if (!option) option = {};
+    if (!option) option = { value: null };
     super(Tag.Tags.Value);
-    const { value } = option;
-    Object.defineProperty(this.$inner, 'element', { value, enumerable: true });
-    this.defineElementMapping('value', () => this.$inner.element)
+    const keys = Object.keys(option);
+    for (let key of keys) {
+      if (key === 'value') {
+        Object.defineProperty(this.$inner, 'element', { value: option[key], enumerable: true });
+        this.defineElementMapping(key, () => this.getElement())
+      } else {
+        this.setAttr(key, option[key], true)
+      }
+    }
   }
 }
 /**

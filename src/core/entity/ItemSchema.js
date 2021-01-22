@@ -9,7 +9,7 @@ export class ItemSchema extends TagGroup {
     super(TagGroup.Tags.ItemSchema, Field);
     console.time('init')
     if (Array.isArray(options.fieldList)) {
-      options.fieldList.forEach(field => this.push(createField(field)))
+      options.fieldList.forEach(field => this.push(createField(field, null)))
     }
     console.timeEnd('init')
   }

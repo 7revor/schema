@@ -7,24 +7,32 @@ import { MultiCheckField } from './MultiCheckField';
 import { MultiInputField } from './MultiInput';
 import { ComplexField } from './ComplexField';
 import { MultiComplexField } from './MultiComplexField';
-
+import { Type } from '../Type';
+/**
+ * 根据类型获取字段基类
+ * @param {*} type 类型
+ */
 export const getFieldClass = (type) => {
   switch (type) {
-    case 'label': return LabelField;
-    case 'input': return InputField;
-    case 'multiInput': return MultiInputField;
-    case 'singleCheck': return SingleCheckField;
-    case 'multiCheck': return MultiCheckField;
-    case 'complex': return ComplexField;
-    case 'multiComplex': return MultiComplexField;
+    case Type.LABEL: return LabelField;
+    case Type.INPUT: return InputField;
+    case Type.MULTI_INPUT: return MultiInputField;
+    case Type.SINGLE_CHECK: return SingleCheckField;
+    case Type.MULTI_CHECK: return MultiCheckField;
+    case Type.COMPLEX: return ComplexField;
+    case Type.MULTI_COMPLEX: return MultiComplexField;
     default: return Field;
   }
 }
-
-export const createField = (field) => {
+/**
+ * 创建基类
+ * @param {*} field 选项
+ * @param {*} parent 父类
+ */
+export const createField = (field, parent = null) => {
   const { type } = field;
   const Clazz = getFieldClass(type);
-  return new Clazz(field);
+  return new Clazz(field, parent);
 }
 
 
@@ -32,10 +40,10 @@ export const createField = (field) => {
  * Field集合
  */
 export class Fields extends TagGroup {
-  constructor(fields) {
+  constructor(fields, parent = null) {
     super(TagGroup.Tags.Fields, Field);
     if (Array.isArray(fields)) {
-      fields.forEach(field => this.push(createField(field)))
+      fields.forEach(field => this.push(createField(field, parent)))
     }
   }
 }

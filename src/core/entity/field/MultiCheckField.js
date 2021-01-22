@@ -6,6 +6,9 @@ export class MultiCheckField extends Field {
   constructor(field, parent) {
     super(field, parent);
     const { options, values } = field;
+    /**
+     * 选项映射
+     */
     this.define('optionMap', new Map())
     /**
      * 选项
@@ -15,26 +18,20 @@ export class MultiCheckField extends Field {
       this.setElement('options', opts, true);
       opts.forEach(opt => this.optionMap.set(opt.value, opt.displayName))
     }
-    this.setElement('value', new Values(values))
-    /**
-    * 添加取值映射
-    */
-    this.defineValue();
-  }
-  /**
-    * 添加取值映射
-    */
-  defineValue() {
-    this.defineElementMapping('value', () => {
-      const values = this.valuePointer.value;
-      if (!values) return [];
-      return [...values.map(({ value }) => {
-        return {
-          value,
-          display: this.optionMap.get(value),
-        }
-      })]
-    })
+    if (this.isTopest()) {
+      this.setElement('value', new Values(values));
+      this.defineElementMapping('value', () => {
+        const values = this.getElement().value;
+        if (!values) return [];
+        return [...values.map(({ value }) => {
+          return {
+            value,
+            display: this.optionMap.get(value),
+          }
+        })]
+      })
+    }
+
   }
   /**
    * 添加选项

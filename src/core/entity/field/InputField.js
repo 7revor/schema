@@ -6,28 +6,33 @@ import { Value } from "../value/Value";
 export class InputField extends Field {
   constructor(field, parent) {
     super(field, parent);
-    const { value } = field;
     /**
-     * 设置默认值
+     * 顶级字段，直接含有value属性
      */
-    this.setElement('value', new Value(value));
-    /**
-     * 添加映射
-     */
-    this.defineValue();
-  }
+    if (this.isTopest()) {
+      const { value } = field;
+      /**
+        * 设置默认值
+        */
+      this.setElement('value', new Value(value, this.rules));
+      /**
+        * 添加映射(只有顶级字段含有value信息)
+        */
+      this.defineElementMapping('value', () => {
+        const { value } = this.getElement().value; // 默认为this.$inner.element
+        return {
+          value,
+          display: value
+        }
+      })
+    } else {
+      /**
+       * 子字段，关联顶级字段的value属性
+       */
+      const ancestor = this.getAncestor();
 
-  /**
-     * 添加取值映射
-     */
-  defineValue() {
-    this.defineElementMapping('value', () => {
-      const { value } = this.valuePointer.value; // 默认为this.$inner.element
-      return {
-        value,
-        display: value
-      }
-    })
+
+    }
   }
   /**
    * 设置新值

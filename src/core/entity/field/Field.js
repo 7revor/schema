@@ -7,7 +7,20 @@ import { Rules } from '../Rule';
 export class Field extends Tag {
   constructor(field, parent) {
     super(Tag.Tags.Field);
-    parent && this.define('parent', parent);
+    /**
+     * 初始化属性
+     */
+    this.initProperty(field);
+    /**
+     * 初始化级联关系
+     */
+    this.initRelation(parent)
+  }
+
+  /**
+   * 初始化属性
+   */
+  initProperty(field) {
     const { id, name, type, rules } = field;
     /**
      * 用于描述唯一主键，以商品的标题为例，id=“title”。
@@ -29,24 +42,34 @@ export class Field extends Tag {
     if (rules) {
       this.setElement('rules', new Rules(rules), true);
     }
-    /**
-     * 定义value取值位置
-     */
-    this.defineValuePointer(this.$inner.element);
-
   }
+
   /**
-   * 定义value取值位置
+   * 初始化级联关系
+   * @param {*} parent 
    */
-  defineValuePointer(pointer) {
-    this.define('valuePointer', pointer, true)
+  initRelation(parent) {
+    if (parent) {
+      this.define('parent', parent);                // 定义父类
+      this.getAncestor().child.set(this.id, this);  // 为祖先设置子类映射
+    } else {
+      this.define('child', new Map());              // 定义子类集合（顶级字段）
+    }
   }
 
+  /**
+   * 是否为顶级field
+   */
+  isTopest() {
+    return !this.parent
+  }
+
+  /**
+   * 获取顶级field
+   */
   getAncestor() {
     let parent = this;
-    while (this.parent) {
-      parent = this.parent;
-    }
+    while (parent.parent) parent = parent.parent;
     return parent
   }
 }

@@ -3,9 +3,12 @@ import { Options } from "../Option";
 import { Value } from "../value/Value";
 
 export class SingleCheckField extends Field {
-  constructor(field) {
-    super(field);
+  constructor(field, parent) {
+    super(field, parent);
     const { options, value } = field;
+    /**
+     * 选项映射
+     */
     this.define('optionMap', new Map())
     /**
      * 选项
@@ -15,27 +18,21 @@ export class SingleCheckField extends Field {
       this.setElement('options', opts, true);
       opts.forEach(opt => this.optionMap.set(opt.value, opt.displayName))
     }
-    /**
-     * 设置默认值
-     */
-    this.setElement('value', new Value(value));
-    /**
-     * 添加取值映射
-     */
-    this.defineValue();
-  }
-  /**
-    * 添加取值映射
-    */
-  defineValue() {
-    this.defineElementMapping('value', () => {
-      const { value } = this.valuePointer.value;
-      if (!value) return { value: null, display: null };
-      return {
-        value,
-        display: this.optionMap.get(value),
-      }
-    })
+    if (this.isTopest()) {
+      /**
+        * 设置默认值
+        */
+      this.setElement('value', new Value(value, this.rules));
+      this.defineElementMapping('value', () => {
+        const { value } = this.getElement().value;
+        if (!value) return { value: null, display: null };
+        return {
+          value,
+          display: this.optionMap.get(value),
+        }
+      })
+    }
+
   }
 
   setValue(value) {

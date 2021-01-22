@@ -1,47 +1,32 @@
 import { Field } from "./Field";
-import { Fields, getFieldClass } from "./index";
+import { Fields } from "./index";
+import { ComplexValuesGroup, recursionValue } from "../value/ComplexValue";
 
-import { ComplexValuesGroup } from '../value/ComplexValue';
 /**
  * 每一个complexValues都必须包含所有field中的字段
+ * multiComplex具有特殊修改方法，用于修改指定下标的数据
  */
 export class MultiComplexField extends Field {
   constructor(field, parent) {
     super(field, parent);
-    let { fields, complexValues } = field;
-    this.setElement('complexValuesGroup', new ComplexValuesGroup(complexValues ? complexValues.map(complex => complex.field) : []));  // 后台多包了一层field，这里直接解包
+    let { fields, complexValues, complexValue } = field;
     /**
      * 初始化子属性
      */
-    const fieldList = new Fields();
-    fields.forEach((field) => {
-      const Clazz = getFieldClass(field.type);
-      const instance = new Clazz(field, this);  // 子字段实例
-      fieldList.push(instance)
-    })
-    this.setElement('fields', fieldList, true);
-    this.defineValue();
-  }
-  /**
-    * 添加取值映射
-    */
-  defineValue() {
-    this.defineElementMapping('value', () => {
-      const complexValuesGroup = this.valuePointer.complexValuesGroup;
-      if (!complexValuesGroup) return [];
-      const result = [];
-      complexValuesGroup.forEach(complexValuesFields => {
-        const obj = {};
-        complexValuesFields.forEach(complexValuesField => {
-          if (Array.isArray(complexValuesField.value)) {
-            obj[complexValuesField.id] = [...complexValuesField.value.map(v => v.value.value)];
-          } else {
-            obj[complexValuesField.id] = complexValuesField.value.value
-          }
-        })
-        result.push(obj)
-      })
-      return result;
-    })
+    this.setElement('fields', new Fields(fields, this), true);
+    /**
+      * 顶级字段
+      */
+    if (this.isTopest()) {
+      /**
+       * 递归设置默认值
+       */
+      const initValue = [];
+      recursionValue(initValue, this, complexValues || complexValue)
+      /**
+        * 设置初始值（顶级字段映射）
+        */
+      this.setElement('value', new ComplexValuesGroup(initValue));
+    }
   }
 }
