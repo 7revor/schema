@@ -1,6 +1,6 @@
 import { Tag, TagGroup } from "../../base/Tag";
 import { Value, Values } from './Value';
-import { Type } from "../Type";
+import { FieldType as Type } from "../Constant";
 /**
  * field标签
  */
@@ -14,17 +14,17 @@ export class ValueField extends Tag {
     this.setAttr('type', type, true);
     let v;
     switch (type) {
-      case "input":
-      case 'singleCheck':
-        v = new Value(value);
+      case Type.INPUT:
+      case Type.SINGLE_CHECK:
+        v = new Value(value, field);
         break;
-      case "multiCheck":
-        v = new Values(value);
+      case Type.MULTI_CHECK:
+        v = new Values(value, field);
         break;
-      case "complex":
+      case Type.COMPLEX:
         v = new ComplexValueGroup(value, field);
         break;
-      case "multiComplex":
+      case Type.MULTI_COMPLEX:
         v = new ComplexValuesGroup(value, field);
     }
     this.define('field', field);                        // 值->字段 映射

@@ -44,13 +44,11 @@ export class SingleCheckField extends Field {
         }
       }
     })
-
   }
 
   setValue(value) {
-    const pointer = this.valuePointer;
-    const result = this.optionMap.get(value);
-    if (!result) throw new Error(`Option ${value} not exist!`);
-    pointer.value = new Value({ value })
+    const valueField = this.getValueField();
+    if (valueField instanceof ValueFieldList) throw new Error('MultiComplex field could not set value alone!')
+    valueField.value.setValue(value);
   }
 }

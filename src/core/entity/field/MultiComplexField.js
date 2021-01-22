@@ -1,5 +1,5 @@
 import { Field } from "./Field";
-import { Fields } from "./index";
+import { Fields } from "./Fields";
 import { ComplexValuesGroup, recursionValue } from "../value/ValueField";
 
 /**

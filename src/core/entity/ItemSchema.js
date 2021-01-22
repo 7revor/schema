@@ -1,6 +1,6 @@
 import { TagGroup } from "../base/Tag";
 import { Field } from "./field/Field";
-import { createField } from './field'
+import { createField } from './field/FieldFactory'
 /**
  * 商品Schema信息
  */

@@ -15,6 +15,10 @@ export class InputField extends Field {
         * 设置默认值
         */
       this.setElement('value', new Value(value, this.rules));
+      if(this.name==='商品标题'){
+        console.error(this.rules)
+        this.validate();
+      }
     }
 
     /**
@@ -36,6 +40,8 @@ export class InputField extends Field {
    * 设置新值
    */
   setValue(value) {
-
+    const valueField = this.getValueField();
+    if (valueField instanceof ValueFieldList) throw new Error('MultiComplex field could not set value alone!');
+    valueField.value.setValue(value);
   }
 }

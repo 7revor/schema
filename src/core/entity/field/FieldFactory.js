@@ -1,13 +1,15 @@
 import { Field } from './Field';
 import { InputField } from './InputField';
-import { TagGroup } from '../../base/Tag';
 import { LabelField } from './LabelField';
 import { SingleCheckField } from './SingleCheckField';
 import { MultiCheckField } from './MultiCheckField';
 import { MultiInputField } from './MultiInput';
 import { ComplexField } from './ComplexField';
 import { MultiComplexField } from './MultiComplexField';
-import { Type } from '../Type';
+import { FieldType as Type } from '../Constant';
+
+
+
 /**
  * 根据类型获取字段基类
  * @param {*} type 类型
@@ -36,14 +38,3 @@ export const createField = (field, parent = null) => {
 }
 
 
-/**
- * Field集合
- */
-export class Fields extends TagGroup {
-  constructor(fields, parent = null) {
-    super(TagGroup.Tags.Fields, Field);
-    if (Array.isArray(fields)) {
-      fields.forEach(field => this.push(createField(field, parent)))
-    }
-  }
-}

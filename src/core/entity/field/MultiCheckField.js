@@ -20,6 +20,7 @@ export class MultiCheckField extends Field {
     }
     if (this.isTopest()) {
       this.setElement('value', new Values(values));
+      this.removeValue('2')
     }
     /**
       * 添加映射(只有顶级字段含有value信息)
@@ -50,19 +51,19 @@ export class MultiCheckField extends Field {
    * 添加选项
    */
   addValue(value) {
-    const pointer = this.valuePointer;
-    const result = this.optionMap.get(value);
-    if (!result) throw new Error(`Option ${value} not exist!`);
-    if (pointer.values.find(v => v.value === value)) return;
-    pointer.values.push(new Value({ value }))
+    const valueField = this.getValueField();
+    if (valueField instanceof ValueFieldList) throw new Error('MultiComplex field could not set value alone!');
+    if (!valueField.value.find(v => v.value === value)) {
+      valueField.value.push(new Value({ value }));
+    }
   }
   /**
    * 删除选项
    */
   removeValue(value) {
-    const pointer = this.valuePointer;
-    const index = pointer.values.findIndex(v => v.value === value);
-    if (index === -1) throw new Error(`Option ${value} not exist!`);
-    pointer.values.splice(index, 1);
+    const valueField = this.getValueField();
+    if (valueField instanceof ValueFieldList) throw new Error('MultiComplex field could not remove value alone!');
+    const index = valueField.value.findIndex(v => v.value === value);
+    valueField.value.splice(index, 1);
   }
 }

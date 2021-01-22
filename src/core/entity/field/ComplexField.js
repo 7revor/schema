@@ -1,4 +1,4 @@
-import { Fields } from "./index";
+import { Fields } from "./Fields";
 import { ComplexValueGroup, recursionValue } from "../value/ValueField";
 import { Field } from "./Field";
 /**
@@ -27,6 +27,7 @@ export class ComplexField extends Field {
       this.setElement('value', new ComplexValueGroup(initValue, this));
     }
   }
+
   getValue() {
     return this.getElement().value;
   }

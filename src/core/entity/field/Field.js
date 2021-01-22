@@ -1,6 +1,7 @@
 import { Tag } from "../../base/Tag";
-import { isLegalType, Type } from '../Type';
-import { Rules } from '../Rule';
+import { isLegalFieldType } from '../Constant';
+import { Rules } from '../rule/Rules';
+import { Value } from "../value/Value";
 
 export class ValueFieldList extends Array { }
 /**
@@ -36,7 +37,7 @@ export class Field extends Tag {
     /**
      * 用于描述field的值的数据输入类型，schema结构对于field定义了七种类型，分别为input、multiInput、singleCheck、multiCheck、complex、multiComplex和label。详见Type
      */
-    if (!isLegalType(type)) throw new Error(`Field type ${type} is not legal!`);
+    if (!isLegalFieldType(type)) throw new Error(`Field type ${type} is not legal!`);
     this.setAttr('type', type, true);
     /**
      * 用于描述field的各类系统或者业务规则。详见Rule说明
@@ -88,6 +89,20 @@ export class Field extends Tag {
     let parent = this;
     while (parent.parent) parent = parent.parent;
     return parent
+  }
+  /**
+   * 校验方法
+   */
+  validate(value) {
+    if (value && !(value instanceof Value)) throw new Error('Field value received Value type Only!')
+    const valueField = this.getValueField();
+    if (!this.rules) return true;
+    const msg = [];
+    for (let rule of this.rules) {
+      const info = rule.validate(value || valueField.value);
+      info && msg.push(info);
+    }
+    return msg
   }
 }
 

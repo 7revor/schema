@@ -44,26 +44,25 @@ const Type = {
  * 值类型
  */
 export class Value extends Tag {
-  constructor(option) {
+  constructor(option, field) {
     if (!option) option = { value: null };
     super(Tag.Tags.Value);
-    const keys = Object.keys(option);
-    for (let key of keys) {
-      if (key === 'value') {
-        Object.defineProperty(this.$inner, 'element', { value: option[key], enumerable: true });
-        this.defineElementMapping(key, () => this.getElement())
-      } else {
-        this.setAttr(key, option[key], true)
-      }
-    }
+    Object.defineProperty(this.$inner, 'element', { value: option.value, enumerable: true });
+    this.defineElementMapping('value', () => this.getElement())
+  }
+  /**
+   * 设置新值
+   */
+  setValue(value) {
+    Object.defineProperty(this.$inner, 'element', { value, enumerable: true });
   }
 }
 /**
  * 值类型集合
  */
 export class Values extends TagGroup {
-  constructor(values) {
-    super(TagGroup.Tags.Values, Value, values);
+  constructor(values, field) {
+    super(TagGroup.Tags.Values, Value, values, field);
   }
 }
 Value.Type = Type;
