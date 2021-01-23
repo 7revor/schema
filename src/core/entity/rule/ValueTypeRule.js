@@ -1,8 +1,20 @@
 import { Rule } from "./Rule";
 import { ValueType } from '../Constant';
 export class ValueTypeRule extends Rule {
+  constructor(rule) {
+    super(rule);
+    this.setAttr('target', rule.target, true)
+  }
+  getTarget() {
+    if (!this.target) {
+      return 'value';
+    }
+    else {
+      return this.target.split(':')[1];
+    }
+  }
   validate(v) {
-    const { value } = v;
+    const value = v[this.getTarget()];
     if (value) {
       switch (this.value) {
         case ValueType.TEXTAREA:

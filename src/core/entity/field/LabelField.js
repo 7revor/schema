@@ -7,7 +7,7 @@ export class LabelField extends Field {
      * 描述信息
      */
     if (field.labelGroup) {
-      this.setElement('labelGroup', new LabelGroup(field.labelGroup));
+      this.setElement('labelGroup', new LabelGroup(field.labelGroup), true);
     }
   }
 }

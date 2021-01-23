@@ -1,6 +1,6 @@
 import { Field, ValueFieldList } from "./Field";
 import { Fields } from "./Fields";
-import { ComplexValuesGroup, recursionValue, ValueField } from "../value/ValueField";
+import { ComplexValuesGroup, recursionValue } from "../value/ValueField";
 
 /**
  * 每一个complexValues都必须包含所有field中的字段

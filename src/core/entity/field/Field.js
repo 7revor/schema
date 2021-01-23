@@ -1,8 +1,14 @@
 import { Tag } from "../../base/Tag";
 import { isLegalFieldType } from '../Constant';
+import { MaxLengthRule, MinLengthRule } from "../rule/LengthRule";
+import { MaxNumRule, MinNumRule } from "../rule/NumRule";
 import { ReadOnlyRule } from "../rule/ReadOnlyRule";
 import { RequiredRule } from "../rule/RequiredRule";
 import { Rules } from '../rule/Rules';
+import { DevTipRule, TipRule } from "../rule/TipRule";
+import { ValueAttributeRule } from "../rule/ValueAttributeRule";
+import { MaxValueRule, MinValueRule } from "../rule/ValueRule";
+import { ValueTypeRule } from "../rule/ValueTypeRule";
 import { Value } from "../value/Value";
 
 export class ValueFieldList extends Array { }
@@ -44,16 +50,68 @@ export class Field extends Tag {
     /**
      * 用于描述field的各类系统或者业务规则。详见Rule说明
      */
+    this.initRule(rules);
+  }
+  /**
+   * 初始化规则选项
+   */
+  initRule(rules) {
+    const ruleInfo = {};
+    this.define('rule', ruleInfo, false, true);
+    if (this.type === 'input') ruleInfo.isInput = true;
     if (rules) {
-      this.setElement('rules', new Rules(rules), true);
-      let isReadOnly = false;
-      let isRequired = false;
-      for (let rule of this.rules) {
-        if (rule instanceof ReadOnlyRule && rule.value === 'true') isReadOnly = true;
-        if (rule instanceof RequiredRule && rule.value === 'true') isRequired = true;
+      this.setElement('rules', new Rules(rules));
+      for (let rule of this.getElement().rules) {
+        if (rule instanceof ValueTypeRule) {
+          const target = rule.getTarget();
+          if (!ruleInfo.type) ruleInfo.type = {};
+          ruleInfo.type[target] = rule.value;
+        }
+        if (rule instanceof ReadOnlyRule && rule.value === 'true') {
+          ruleInfo.isReadOnly = true
+        }
+        if (rule instanceof RequiredRule && rule.value === 'true') {
+          ruleInfo.isRequired = true
+        }
+        if (rule instanceof MaxNumRule) {
+          ruleInfo.maxNum = parseInt(rule.value);
+        }
+        if (rule instanceof MinNumRule) {
+          ruleInfo.minNum = parseInt(rule.value);
+        }
+        if (rule instanceof MaxLengthRule) {
+          ruleInfo.maxLength = parseInt(rule.value);
+        }
+        if (rule instanceof MinLengthRule) {
+          ruleInfo.minLength = parseInt(rule.value);
+        }
+        if (rule instanceof MaxValueRule) {
+          const num = parseInt(rule.value);
+          if (!isNaN(num)) {
+            ruleInfo.maxValue = num;
+          }
+        }
+        if (rule instanceof MinValueRule) {
+          ruleInfo.minValue = parseInt(rule.value);
+        }
+        if (rule instanceof ValueAttributeRule) {
+          if (!ruleInfo.valueAttribute) ruleInfo.valueAttribute = [];
+          ruleInfo.valueAttribute.push(rule.value);
+          if (rule.value === 'inputValue') ruleInfo.isInput = true;
+        }
+        if (rule instanceof TipRule) {
+          if (!ruleInfo.tip) ruleInfo.tip = [];
+          if (rule.value === '请使用SelectProp接口查询并填充完整子属性后提交') {
+            ruleInfo.isCascade = true;
+          } else {
+            ruleInfo.tip.push(rule.value)
+          }
+        }
+        if (rule instanceof DevTipRule) {
+          if (!ruleInfo.devTip) ruleInfo.devTip = [];
+          ruleInfo.devTip.push(rule.value)
+        }
       }
-      this.define('isReadOnly', isReadOnly, false, true);
-      this.define('isRequired', isRequired, false, true);
     }
   }
 

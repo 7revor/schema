@@ -33,7 +33,7 @@ export class LabelGroup extends Tag {
       this.setElement('label', new Label(label), true);
     }
     if (Array.isArray(labelGroup)) {
-      this.setElement('labelGroup', labelGroup.map(item => new LabelGroup(item)), false);
+      this.setElement('labelGroup', labelGroup.map(item => new LabelGroup(item)), true);
     }
   }
 }
