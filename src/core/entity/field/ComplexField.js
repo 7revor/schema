@@ -15,7 +15,7 @@ export class ComplexField extends Field {
     /**
     * 顶级字段
     */
-    if (this.isTopest()) {
+    if (this.isRoot()) {
       /**
        * 递归设置默认值
        */
@@ -31,12 +31,13 @@ export class ComplexField extends Field {
       */
     this.defineElementMapping('value', () => {
       const valueField = this.getValueField();
+      if(!valueField) return [];
       if (valueField instanceof ValueFieldList) {  // 含有嵌套complex-values
-        return [...valueField.map(field => ({ id: field.id, name: field.name, value: field.getValue() }))];
+        return [...valueField.map(field => ({ id: field.id, name: field.name, value: field.toJSON() }))];
       } else {
         const valueList = [];
         for (let field of valueField.value) {
-          valueList.push({ id: field.id, name: field.name, value: field.getValue() })
+          valueList.push({ id: field.id, name: field.name, value: field.toJSON() })
         }
         return valueList
       }

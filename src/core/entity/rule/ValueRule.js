@@ -13,5 +13,9 @@ export class MaxValueRule extends Rule {
 export class MinValueRule extends Rule {
   constructor(rule, field) {
     super(rule);
+    const num = parseInt(rule.value);
+    if (!isNaN(num)) {
+      field.rule.minValue = num;
+    }
   }
 }

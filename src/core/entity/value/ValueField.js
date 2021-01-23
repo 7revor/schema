@@ -6,6 +6,7 @@ import { FieldType as Type } from "../Constant";
  */
 export class ValueField extends Tag {
   constructor(complex, field) {
+    if (!field) throw new Error('ValueField must construct with field!')
     if (field.id !== complex.id) field = field.fields.find(f => f.id === complex.id);
     super(Tag.Tags.Field);
     const { id, name, type, value } = complex;
@@ -27,24 +28,23 @@ export class ValueField extends Tag {
       case Type.MULTI_COMPLEX:
         v = new ComplexValuesGroup(value, field);
     }
-
     this.define('field', field);                        // 值->字段 映射
-    field.setValueField(this);
+    field.setValueField(this);                          // 字段->值映射
     this.setElement('value', v, () => this.$inner.element.value.value);
   }
   /**
-   * 获取valueField中的值
+   * 获取valueField中的值(只读)
    */
-  getValue() {
+  toJSON() {
     const { value } = this;
     switch (this.type) {
       case Type.INPUT: return value.value;
-      case Type.SINGLE_CHECK: return { value: value.value, display: this.field.optionMap.get(value.value), inputValue: value.inputValue }
-      case Type.MULTI_CHECK: return [...value.map(v => ({ value: v.value, inputValue: v.inputValue, display: this.field.optionMap.get(v.value) }))];
+      case Type.SINGLE_CHECK: return { ...value, display: this.field.optionMap.get(value.value) }
+      case Type.MULTI_CHECK: return [...value.map(v => ({ ...v, display: this.field.optionMap.get(v.value) }))];
       case Type.MULTI_COMPLEX:
       case Type.COMPLEX:
-        if (value instanceof ComplexValueGroup) return [...value.map(complexValue => ({ id: complexValue.field.id, name: complexValue.field.name, value: complexValue.getValue() }))]
-        if (value instanceof ComplexValuesGroup) return [...value.map(complexValues => [...complexValues.map(complexValue => ({ id: complexValue.field.id, name: complexValue.field.name, value: complexValue.getValue() }))])]
+        if (value instanceof ComplexValueGroup) return [...value.map(complexValue => ({ id: complexValue.field.id, name: complexValue.field.name, value: complexValue.toJSON() }))]
+        if (value instanceof ComplexValuesGroup) return [...value.map(complexValues => [...complexValues.map(complexValue => ({ id: complexValue.field.id, name: complexValue.field.name, value: complexValue.toJSON() }))])]
 
     }
   }
@@ -127,6 +127,5 @@ export function recursionValue(target, parent, complexValue) {
       }
       target.push(group)
     }
-
   }
 }

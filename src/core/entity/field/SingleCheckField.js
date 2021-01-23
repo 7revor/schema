@@ -19,23 +19,24 @@ export class SingleCheckField extends Field {
       this.setElement('options', opts, true);
       opts.forEach(opt => this.optionMap.set(opt.value, opt.displayName))
     }
-    if (this.isTopest()) {
+    if (this.isRoot()) {
       /**
         * 设置默认值
         */
-      this.setElement('value', new Value(value, this.rules));
+      this.setElement('value', new Value(value, this));
     }
     /**
       * 添加映射(只有顶级字段含有value信息)
       */
     this.defineElementMapping('value', () => {
       const valueField = this.getValueField();
-      if (valueField instanceof ValueField) return valueField.getValue();
+      if (!valueField) return [];
+      if (valueField instanceof ValueField) return valueField.toJSON();
       if (valueField instanceof ValueFieldList) {
-        return [...valueField.map(field => field.getValue())]
+        return [...valueField.map(field => field.toJSON())]
       } else {
         return {
-          value: valueField.value.value,
+          ...valueField.value,
           display: valueField.value.value ? this.optionMap.get(valueField.value.value) : null
         }
       }
@@ -44,7 +45,7 @@ export class SingleCheckField extends Field {
 
   setValue(value) {
     const valueField = this.getValueField();
-    if (valueField instanceof ValueFieldList) throw new Error('MultiComplex field could not set value alone!')
+    if (this.isMultiComponent()) throw new Error('MultiComplex\'s child field could not set value alone! Please get complexValueTemplate from parent multi field first！');
     valueField.value.setValue(value);
   }
 }

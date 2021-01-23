@@ -18,35 +18,34 @@ export class MultiCheckField extends Field {
       this.setElement('options', opts, true);
       opts.forEach(opt => this.optionMap.set(opt.value, opt.displayName))
     }
-    if (this.isTopest()) {
-      this.setElement('value', new Values(values));
+    if (this.isRoot()) {
+      this.setElement('value', new Values(values, this));
     }
     /**
       * 添加映射(只有顶级字段含有value信息)
       */
     this.defineElementMapping('value', () => {
       const valueField = this.getValueField();
-      if (valueField instanceof ValueFieldList) return valueField.getValue();
+      if (!valueField) return [];
+      if (valueField instanceof ValueFieldList) return valueField.toJSON();
       if (valueField instanceof ValueFieldList) {
-        return [...valueField.map(field => field.getValue())]
+        return [...valueField.map(field => field.toJSON())]
       } else {
-        return [...valueField.value.map(({ value, inputValue }) => {
+        return [...valueField.value.map(field => {
           return {
-            value,
-            inputValue,
-            display: this.optionMap.get(value),
+            ...field.value,
+            display: this.optionMap.get(field.value.value),
           }
         })]
       }
     })
-
   }
   /**
    * 添加选项
    */
   addValue(value) {
     const valueField = this.getValueField();
-    if (valueField instanceof ValueFieldList) throw new Error('MultiComplex field could not set value alone!');
+    if (this.isMultiComponent()) throw new Error('MultiComplex\'s child field could not addValue value alone! Please get complexValueTemplate from parent multi field first！');
     if (!valueField.value.find(v => v.value === value)) {
       valueField.value.push(new Value({ value }));
     }
@@ -56,7 +55,7 @@ export class MultiCheckField extends Field {
    */
   removeValue(value) {
     const valueField = this.getValueField();
-    if (valueField instanceof ValueFieldList) throw new Error('MultiComplex field could not remove value alone!');
+    if (this.isMultiComponent()) throw new Error('MultiComplex\'s child field could not removeValue value alone! Please get complexValueTemplate from parent multi field first！');
     const index = valueField.value.findIndex(v => v.value === value);
     valueField.value.splice(index, 1);
   }

@@ -1,5 +1,5 @@
 import { Tag } from "../../base/Tag";
-import { isLegalFieldType } from '../Constant';
+import { FieldType, isLegalFieldType } from '../Constant';
 import { MaxLengthRule, MinLengthRule } from "../rule/LengthRule";
 import { MaxNumRule, MinNumRule } from "../rule/NumRule";
 import { ReadOnlyRule } from "../rule/ReadOnlyRule";
@@ -10,6 +10,7 @@ import { ValueAttributeRule } from "../rule/ValueAttributeRule";
 import { MaxValueRule, MinValueRule } from "../rule/ValueRule";
 import { ValueTypeRule } from "../rule/ValueTypeRule";
 import { Value } from "../value/Value";
+import { ValueField } from "../value/ValueField";
 
 export class ValueFieldList extends Array { }
 /**
@@ -79,14 +80,26 @@ export class Field extends Tag {
     }
   }
 
+  removeValueField(value) {
+    const valueField = this.valueField;
+    if (!valueField) throw new Error('ValueField not exist!');
+    if (valueField instanceof ValueFieldList) {
+      const index = valueField.indexOf(value);
+      if (index === -1) throw new Error('valueField not found!');
+      valueField.splice(index, 1);
+    } else {
+      this.define('valueField', null, true)
+    }
+  }
+
   getValueField() {
-    return this.isTopest() ? this.getElement() : this.valueField;
+    return this.isRoot() ? this.getElement() : this.valueField;
   }
 
   /**
    * 是否为顶级field
    */
-  isTopest() {
+  isRoot() {
     return !this.parent
   }
 
@@ -111,6 +124,18 @@ export class Field extends Tag {
       info && msg.push(info);
     }
     return msg
+  }
+  /**
+   * 是否为MultiComplex字段的组成部分
+   */
+  isMultiComponent() {
+    let parent = this;
+    let isMultiComponent = false;
+    while (parent.parent && !isMultiComponent) {
+      parent = parent.parent;
+      isMultiComponent = parent.type === FieldType.MULTI_COMPLEX;
+    }
+    return isMultiComponent
   }
 }
 

@@ -10,12 +10,12 @@ export class InputField extends Field {
     /**
      * 顶级字段，直接含有value属性
      */
-    if (this.isTopest()) {
+    if (this.isRoot()) {
       const { value } = field;
       /**
         * 设置默认值
         */
-      this.setElement('value', new Value(value, this.rules));
+      this.setElement('value', new Value(value, this));
     }
 
     /**
@@ -23,9 +23,10 @@ export class InputField extends Field {
       */
     this.defineElementMapping('value', () => {
       const valueField = this.getValueField();
-      if (valueField instanceof ValueField) return valueField.getValue();  // 子类目
+      if (!valueField) return [];
+      if (valueField instanceof ValueField) return valueField.toJSON();  // 子类目
       else if (valueField instanceof ValueFieldList) {                     // multi子类目
-        return [...valueField.map(field => field.getValue())]
+        return [...valueField.map(field => field.toJSON())]
       } else {                                                             // 顶级类目
         return {
           value: valueField.value.value,
@@ -39,7 +40,7 @@ export class InputField extends Field {
    */
   setValue(value) {
     const valueField = this.getValueField();
-    if (valueField instanceof ValueFieldList) throw new Error('MultiComplex field could not set value alone!');
+    if (this.isMultiComponent()) throw new Error('MultiComplex\'s child field could not set value alone! Please get complexValueTemplate from parent multi field first！');
     valueField.value.setValue(value);
   }
 }
