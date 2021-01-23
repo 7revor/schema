@@ -45,10 +45,10 @@ export const getRuleClass = (type) => {
  * @param {*} field 选项
  * @param {*} parent 父类
  */
-export const createRule = (field) => {
-  const { name } = field;
+export const createRule = (rule, field) => {
+  const { name } = rule;
   const Clazz = getRuleClass(name);
-  return new Clazz(field);
+  return new Clazz(rule, field);
 }
 
 

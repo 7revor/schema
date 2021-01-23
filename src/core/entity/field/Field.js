@@ -50,68 +50,8 @@ export class Field extends Tag {
     /**
      * 用于描述field的各类系统或者业务规则。详见Rule说明
      */
-    this.initRule(rules);
-  }
-  /**
-   * 初始化规则选项
-   */
-  initRule(rules) {
-    const ruleInfo = {};
-    this.define('rule', ruleInfo, false, true);
-    if (this.type === 'input') ruleInfo.isInput = true;
     if (rules) {
-      this.setElement('rules', new Rules(rules));
-      for (let rule of this.getElement().rules) {
-        if (rule instanceof ValueTypeRule) {
-          const target = rule.getTarget();
-          if (!ruleInfo.type) ruleInfo.type = {};
-          ruleInfo.type[target] = rule.value;
-        }
-        if (rule instanceof ReadOnlyRule && rule.value === 'true') {
-          ruleInfo.isReadOnly = true
-        }
-        if (rule instanceof RequiredRule && rule.value === 'true') {
-          ruleInfo.isRequired = true
-        }
-        if (rule instanceof MaxNumRule) {
-          ruleInfo.maxNum = parseInt(rule.value);
-        }
-        if (rule instanceof MinNumRule) {
-          ruleInfo.minNum = parseInt(rule.value);
-        }
-        if (rule instanceof MaxLengthRule) {
-          ruleInfo.maxLength = parseInt(rule.value);
-        }
-        if (rule instanceof MinLengthRule) {
-          ruleInfo.minLength = parseInt(rule.value);
-        }
-        if (rule instanceof MaxValueRule) {
-          const num = parseInt(rule.value);
-          if (!isNaN(num)) {
-            ruleInfo.maxValue = num;
-          }
-        }
-        if (rule instanceof MinValueRule) {
-          ruleInfo.minValue = parseInt(rule.value);
-        }
-        if (rule instanceof ValueAttributeRule) {
-          if (!ruleInfo.valueAttribute) ruleInfo.valueAttribute = [];
-          ruleInfo.valueAttribute.push(rule.value);
-          if (rule.value === 'inputValue') ruleInfo.isInput = true;
-        }
-        if (rule instanceof TipRule) {
-          if (!ruleInfo.tip) ruleInfo.tip = [];
-          if (rule.value === '请使用SelectProp接口查询并填充完整子属性后提交') {
-            ruleInfo.isCascade = true;
-          } else {
-            ruleInfo.tip.push(rule.value)
-          }
-        }
-        if (rule instanceof DevTipRule) {
-          if (!ruleInfo.devTip) ruleInfo.devTip = [];
-          ruleInfo.devTip.push(rule.value)
-        }
-      }
+      this.setElement('rules', new Rules(rules, this));
     }
   }
 

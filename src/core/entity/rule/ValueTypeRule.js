@@ -1,9 +1,12 @@
 import { Rule } from "./Rule";
 import { ValueType } from '../Constant';
 export class ValueTypeRule extends Rule {
-  constructor(rule) {
-    super(rule);
-    this.setAttr('target', rule.target, true)
+  constructor(rule, field) {
+    super(rule, field);
+    this.setAttr('target', rule.target, true);
+    const target = this.getTarget();
+    if (target === 'value') field.rule.type = rule.value;
+    else field.rule.attribute[target] = rule.value;         // 可能存在隐患（xml无此属性但含有属性类型）
   }
   getTarget() {
     if (!this.target) {
