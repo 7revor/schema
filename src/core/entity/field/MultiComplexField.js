@@ -42,13 +42,6 @@ export class MultiComplexField extends Field {
         */
       this.setElement('value', new ComplexValuesGroup(initValue, this));
     }
-    if (this.name === '宝贝销售规格') {
-      const template = this.getComplexValuesTemplate()
-      this.addComplexValues(template);
-      const template1 = this.getComplexValuesTemplate()
-      this.addComplexValues(template1);
-      this.removeComplexValues(1)
-    }
     /**
      * 添加映射(只有顶级字段含有value信息)
      */
@@ -70,11 +63,10 @@ export class MultiComplexField extends Field {
       }
     })
     if (this.isRoot()) {
-      const caizhi = this.fields[0];
-      const template = caizhi.getComplexValuesTemplate();
+      const template = this.getComplexValuesTemplate();
       console.log(template);
-      caizhi.addComplexValues(template, 0);
-      caizhi.removeComplexValues(0, 0)
+      this.addComplexValues(template);
+      this.removeComplexValues(0)
     }
   }
   /**
@@ -89,28 +81,20 @@ export class MultiComplexField extends Field {
   }
   /**
    * 应用属性填充模板
+   * @param {*} template 模板数据
+   * @param  {...any} indexArray 想要填充到的complexValues下标（从第一个complexValues元素开始）
    */
   addComplexValues(template, ...indexArray) {
     if (!(template instanceof Template)) throw new Error('addcomplexValues receive Template from getComplexValuesTemplate only!');
+    if (this.id !== template.id) throw new Error('Template id mismatch!');
     const values = template.getTemplate();
-    if (!indexArray.length) {      // 根部添加
-      if (!this.isRoot()) throw new Error('Child field should addComplexValues with indexArray!');  // 根部节点校验
-      if (this.id !== template.id) throw new Error('Template id mismatch!');
+    const valueField = this.getValueField();    //  两种情况：1.根节点，返回element  2.valueField数组
+    if (valueField instanceof ValueFieldList) { // 子节点
+      throw new Error('Child add not support!')
+    } else {                                    // 根节点
       values.forEach(value => {
         const complexValues = new ComplexValues(value, this);
-        const valueFieldGroup = this.getElement().value;
-        valueFieldGroup.push(complexValues)
-      })
-    } else {                  // 子元素添加
-      let targetValueFieldGroup = this.getAncestor().getElement().value;
-      for (let index of indexArray) {
-        targetValueFieldGroup = targetValueFieldGroup[index];   // 目标complexValues
-      }
-      const targetValueField = targetValueFieldGroup.find(valueField => valueField.id === template.id);  // 目标valueField
-      if (!targetValueField) throw new Error('Index valueField not found!');
-      values.forEach(value => {
-        const complexValues = new ComplexValues(value, this);                 // 所有子节点递归关联
-        targetValueField.value.push(complexValues);                           // 父字段无需关联（通过子节点(已关联)获取）
+        valueField.value.push(complexValues)
       })
     }
   }
@@ -131,23 +115,14 @@ export class MultiComplexField extends Field {
         }
       }
     }
-    if (!indexArray.length) {      // 根部移除
-      if (!this.isRoot()) throw new Error('Child field should removeComplexValues with indexArray!');  // 根部节点校验
-      const valueFieldGroup = this.getElement().value;
-      const targetValueField = valueFieldGroup[index];
+    const valueField = this.getValueField();    //  两种情况：1.根节点，返回element  2.valueField数组
+    if (valueField instanceof ValueFieldList) { // 子节点
+      throw new Error('Child remove not support!')
+    } else {                                    // 根节点
+      const targetValueField = valueField.value[index];
       if (!targetValueField) throw new Error('TargetValueField not found！')
       iterator(targetValueField);
-      valueFieldGroup.splice(index, 1)
-    } else {                      // 子节点移除
-      let targetValueFieldGroup = this.getAncestor().getElement().value;
-      for (let i of indexArray) {
-        targetValueFieldGroup = targetValueFieldGroup[i];
-      }
-      const $targetValueField = targetValueFieldGroup.find(valueField => valueField.id === this.id);   // 目标valueField
-      if (!$targetValueField) throw new Error('IndexArray valueField not found!');
-      if (!$targetValueField.value[index]) throw new Error('Index valueField not found!');
-      iterator($targetValueField.value[index]);     // 递归清除子节点
-      $targetValueField.value.splice(index, 1)      // 父节点无需清除（通过子节点(已关联)获取）
+      valueField.value.splice(index, 1)
     }
   }
 }

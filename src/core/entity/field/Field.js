@@ -67,16 +67,14 @@ export class Field extends Tag {
   }
 
   setValueField(field) {
+    const isMultiComponent = this.isMultiComponent();
     const valueField = this.valueField;
     if (valueField) {
       if (valueField instanceof ValueFieldList) valueField.push(field)
-      else {
-        const list = new ValueFieldList();
-        list.push(valueField, field);
-        this.define('valueField', list, true)
-      }
+      else throw new Error('ValueField set duplicate!')
     } else {
-      this.define('valueField', field, true)
+      if (!isMultiComponent) this.define('valueField', field, true);
+      else this.define('valueField', new ValueFieldList(field), true);
     }
   }
 
