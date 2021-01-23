@@ -1,5 +1,7 @@
 import { Tag } from "../../base/Tag";
 import { isLegalFieldType } from '../Constant';
+import { ReadOnlyRule } from "../rule/ReadOnlyRule";
+import { RequiredRule } from "../rule/RequiredRule";
 import { Rules } from '../rule/Rules';
 import { Value } from "../value/Value";
 
@@ -44,6 +46,14 @@ export class Field extends Tag {
      */
     if (rules) {
       this.setElement('rules', new Rules(rules), true);
+      let isReadOnly = false;
+      let isRequired = false;
+      for (let rule of this.rules) {
+        if (rule instanceof ReadOnlyRule && rule.value === 'true') isReadOnly = true;
+        if (rule instanceof RequiredRule && rule.value === 'true') isRequired = true;
+      }
+      this.define('isReadOnly', isReadOnly, false, true);
+      this.define('isRequired', isRequired, false, true);
     }
   }
 
@@ -96,7 +106,7 @@ export class Field extends Tag {
   validate(value) {
     if (value && !(value instanceof Value)) throw new Error('Field value received Value type Only!')
     const valueField = this.getValueField();
-    if (!this.rules) return true;
+    if (!this.rules) return [];
     const msg = [];
     for (let rule of this.rules) {
       const info = rule.validate(value || valueField.value);

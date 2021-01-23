@@ -20,21 +20,15 @@ export class MultiCheckField extends Field {
     }
     if (this.isTopest()) {
       this.setElement('value', new Values(values));
-      this.removeValue('2')
     }
     /**
       * 添加映射(只有顶级字段含有value信息)
       */
     this.defineElementMapping('value', () => {
       const valueField = this.getValueField();
+      if (valueField instanceof ValueFieldList) return valueField.getValue();
       if (valueField instanceof ValueFieldList) {
-        return [...valueField.map(field => {
-          return {
-            value: field.value.value,
-            display: this.optionMap.get(field.value.value),
-            inputValue: field.value.inputValue
-          }
-        })]
+        return [...valueField.map(field => field.getValue())]
       } else {
         return [...valueField.value.map(({ value, inputValue }) => {
           return {

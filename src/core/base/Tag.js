@@ -80,8 +80,8 @@ export class Tag {
   /**
    * 定义非枚举属性
    */
-  define(key, value, configurable = false) {
-    Object.defineProperty(this, key, { value, configurable });
+  define(key, value, configurable = false, enumerable = false) {
+    Object.defineProperty(this, key, { value, configurable, enumerable });
   }
   /**
    * 定义属性映射

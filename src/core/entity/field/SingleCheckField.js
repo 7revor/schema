@@ -1,6 +1,7 @@
 import { Field, ValueFieldList } from "./Field";
 import { Options } from "../Option";
 import { Value } from "../value/Value";
+import { ValueField } from "../value/ValueField";
 
 export class SingleCheckField extends Field {
   constructor(field, parent) {
@@ -29,18 +30,13 @@ export class SingleCheckField extends Field {
       */
     this.defineElementMapping('value', () => {
       const valueField = this.getValueField();
+      if (valueField instanceof ValueField) return valueField.getValue();
       if (valueField instanceof ValueFieldList) {
-        return [...valueField.map(field => {
-          return {
-            value: field.value.value,
-            display: this.optionMap.get(field.value.value),
-            inputValue: field.value.inputValue
-          }
-        })]
+        return [...valueField.map(field => field.getValue())]
       } else {
         return {
-          value: field.value.value,
-          display: field.value.value ? this.optionMap.get(field.value.value) : null
+          value: valueField.value.value,
+          display: valueField.value.value ? this.optionMap.get(valueField.value.value) : null
         }
       }
     })

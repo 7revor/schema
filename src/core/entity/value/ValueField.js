@@ -27,9 +27,26 @@ export class ValueField extends Tag {
       case Type.MULTI_COMPLEX:
         v = new ComplexValuesGroup(value, field);
     }
+
     this.define('field', field);                        // 值->字段 映射
     field.setValueField(this);
     this.setElement('value', v, () => this.$inner.element.value.value);
+  }
+  /**
+   * 获取valueField中的值
+   */
+  getValue() {
+    const { value } = this;
+    switch (this.type) {
+      case Type.INPUT: return value.value;
+      case Type.SINGLE_CHECK: return { value: value.value, display: this.field.optionMap.get(value.value), inputValue: value.inputValue }
+      case Type.MULTI_CHECK: return [...value.map(v => ({ value: v.value, inputValue: v.inputValue, display: this.field.optionMap.get(v.value) }))];
+      case Type.MULTI_COMPLEX:
+      case Type.COMPLEX:
+        if (value instanceof ComplexValueGroup) return [...value.map(complexValue => ({ id: complexValue.field.id, name: complexValue.field.name, value: complexValue.getValue() }))]
+        if (value instanceof ComplexValuesGroup) return [...value.map(complexValues => [...complexValues.map(complexValue => ({ id: complexValue.field.id, name: complexValue.field.name, value: complexValue.getValue() }))])]
+
+    }
   }
 }
 /**

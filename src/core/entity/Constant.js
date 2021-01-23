@@ -117,3 +117,45 @@ export const RuleType = {
 const ruleTypes = Object.values(RuleType);
 
 export const isLegalRuleType = (type) => ruleTypes.includes(type);
+
+/**
+ * value类型
+ */
+export const ValueType = {
+  /**
+   * 文本型
+   */
+  TEXT: "text",
+  /**
+   * 小数型
+   */
+  DECIMAL: "decimal",
+  /**
+   * 整数型
+   */
+  INTEGER: "integer",
+  /**
+   * 长整数型
+   */
+  LONG: "long",
+  /**
+   * 日期型
+   */
+  DATE: "date",
+  /**
+   * 时间型
+   */
+  TIME: "time",
+  /**
+   * 超链接
+   */
+  URL: "url",
+  /**
+   * 多行文本
+   */
+  TEXTAREA: "textarea",
+  /**
+   * 支持html标记语法的文本
+   */
+  HTML: "html"
+}

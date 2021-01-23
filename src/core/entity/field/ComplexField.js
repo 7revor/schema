@@ -1,6 +1,6 @@
 import { Fields } from "./Fields";
 import { ComplexValueGroup, recursionValue } from "../value/ValueField";
-import { Field } from "./Field";
+import { Field, ValueFieldList } from "./Field";
 /**
  * 复杂类型
  */
@@ -26,9 +26,20 @@ export class ComplexField extends Field {
         */
       this.setElement('value', new ComplexValueGroup(initValue, this));
     }
-  }
-
-  getValue() {
-    return this.getElement().value;
+    /**
+      * 添加映射(只有顶级字段含有value信息)
+      */
+    this.defineElementMapping('value', () => {
+      const valueField = this.getValueField();
+      if (valueField instanceof ValueFieldList) {  // 含有嵌套complex-values
+        return [...valueField.map(field => ({ id: field.id, name: field.name, value: field.getValue() }))];
+      } else {
+        const valueList = [];
+        for (let field of valueField.value) {
+          valueList.push({ id: field.id, name: field.name, value: field.getValue() })
+        }
+        return valueList
+      }
+    })
   }
 }

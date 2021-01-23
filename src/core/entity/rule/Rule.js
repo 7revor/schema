@@ -14,9 +14,7 @@ export class Rule extends Tag {
   /**
    * 校验方法
    */
-  validate() {
-    throw new Error('Base Rule Class could not do validate!');
-  }
+  validate() { }
 }
 
 

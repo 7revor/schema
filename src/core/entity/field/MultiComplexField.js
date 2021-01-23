@@ -1,6 +1,6 @@
-import { Field } from "./Field";
+import { Field, ValueFieldList } from "./Field";
 import { Fields } from "./Fields";
-import { ComplexValuesGroup, recursionValue } from "../value/ValueField";
+import { ComplexValuesGroup, recursionValue, ValueField } from "../value/ValueField";
 
 /**
  * 每一个complexValues都必须包含所有field中的字段
@@ -28,8 +28,24 @@ export class MultiComplexField extends Field {
         */
       this.setElement('value', new ComplexValuesGroup(initValue, this));
     }
-  }
-  getValue() {
-    return this.getElement().value;
+    /**
+     * 添加映射(只有顶级字段含有value信息)
+     */
+    this.defineElementMapping('value', () => {
+      const valueField = this.getValueField();
+      if (valueField instanceof ValueFieldList) {           // 含有嵌套complex-values
+        return [...valueField.map(field => ({ id: field.id, name: field.name, value: field.getValue() }))];
+      } else {
+        const valueList = [];
+        for (let complexValueGroup of valueField.value) {
+          const value = [];
+          for (let complexValue of complexValueGroup) {
+            value.push({ id: complexValue.id, name: complexValue.name, value: complexValue.getValue() })
+          }
+          valueList.push(value);
+        }
+        return valueList
+      }
+    })
   }
 }
