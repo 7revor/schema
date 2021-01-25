@@ -78,7 +78,7 @@ export class MultiComplexField extends Field {
   /**
     * 获取属性填充模板(单个)
     */
-  getComplexValuesItemTemplate() {
+   getComplexValuesTemplate() {
     const initValue = [];
     recursionValue(initValue, this, [], true);
     const template = new Template(this);
