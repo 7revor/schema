@@ -25,7 +25,7 @@ export class InputField extends Field {
       const valueField = this.getValueField();
       if (!valueField) return this.isMultiComponent() ? [] : { value: null, display: null };
       if (valueField instanceof ValueField) return valueField.toJSON();    // 子类目
-      else if (valueField instanceof ValueFieldList) {                     // multi子类目
+      if (valueField instanceof ValueFieldList) {                     // multi子类目
         return [...valueField.map(field => field.toJSON())]
       } else {                                                             // 顶级类目
         return {
@@ -41,6 +41,10 @@ export class InputField extends Field {
   setValue(value) {
     if (this.isMultiComponent()) throw new Error('MultiComplex\'s child field could not set value alone! Please get complexValueTemplate from parent multi field first！');
     const valueField = this.getValueField();
-    valueField.value.setValue(value);
+    if (valueField instanceof ValueField) {
+      this.valueField.setValue(new Value(value, this));
+    } else {
+      this.setElement('value', new Value(value, this));
+    }
   }
 }

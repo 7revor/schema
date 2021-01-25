@@ -48,8 +48,8 @@ export class SingleCheckField extends Field {
   setValue(value) {
     if (this.isMultiComponent()) throw new Error('MultiComplex\'s child field could not set value alone! Please get complexValueTemplate from parent multi field first！');
     const valueField = this.getValueField();
-    if (typeof value !== 'object') {
-      valueField.value.setValue(value.value);
+    if (valueField instanceof ValueField) {
+      this.valueField.setValue(new Value(value, this));
     } else {
       this.setElement('value', new Value(value, this));
     }

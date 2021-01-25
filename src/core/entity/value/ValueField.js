@@ -32,6 +32,11 @@ export class ValueField extends Tag {
     field.setValueField(this);                          // 字段->值映射
     this.setElement('value', v, () => this.$inner.element.value.value);
   }
+
+  setValue(value) {
+    if (!(value instanceof Value)) throw new Error('setValue receive instanceof Value only!')
+    this.setElement('value', value, () => this.$inner.element.value.value);
+  }
   /**
    * 获取valueField中的值(只读)
    */

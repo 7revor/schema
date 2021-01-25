@@ -1,6 +1,7 @@
 import { Field, ValueFieldList } from "./Field";
 import { Options } from "../Option";
 import { Values, Value } from "../value/Value";
+import { ValueField } from '../value/ValueField'
 
 export class MultiCheckField extends Field {
   constructor(field, parent) {
@@ -26,8 +27,8 @@ export class MultiCheckField extends Field {
       */
     this.defineElementMapping('value', () => {
       const valueField = this.getValueField();
-      if (!valueField) return this.isMultiComponent() ? [] : { value: null, display: null };
-      if (valueField instanceof ValueFieldList) return valueField.toJSON();
+      if (!valueField) return [];
+      if (valueField instanceof ValueField) return valueField.toJSON();
       if (valueField instanceof ValueFieldList) {
         return [...valueField.map(field => field.toJSON())]
       } else {
@@ -46,22 +47,25 @@ export class MultiCheckField extends Field {
   addValue(value) {
     if (this.isMultiComponent()) throw new Error('MultiComplex\'s child field could not addValue value alone! Please get complexValueTemplate from parent multi field first！');
     const valueField = this.getValueField();
-    if (typeof value !== 'object') {
-      if (!valueField.value.find(v => v.value === value)) {
-        valueField.value.push(new Value({ value }));
+    if (value.value > 0) {  // 选项
+      if (!valueField.value.find(v => v.value === value.value)) { // 无现有值
+        const legal = this.optionMap.get(value.value);
+        if (!legal) throw new Error('option ' + value.value + ' not exist!')
+        valueField.value.push(new Value(value, this));
+      } else {
+        throw new Error('value ' + value.value + ' is already exist!')
       }
-    } else {
-      if (!valueField.value.find(v => v.value === value.value)) {
-        valueField.value.push(new Value(value));
-      }
+    } else {        // 自定义输入
+      if (!this.rule.isInput) throw new Error('Field ' + this.name + ' is not input!');
+      valueField.value.push(new Value(value, this));
     }
   }
   /**
    * 删除选项
    */
   removeValue(value) {
-    const valueField = this.getValueField();
     if (this.isMultiComponent()) throw new Error('MultiComplex\'s child field could not removeValue value alone! Please get complexValueTemplate from parent multi field first！');
+    const valueField = this.getValueField();
     const index = valueField.value.findIndex(v => v.value === value);
     valueField.value.splice(index, 1);
   }

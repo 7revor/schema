@@ -16,18 +16,6 @@ export class Value extends Tag {
       })
     }
   }
-  /**
-   * 设置新值
-   */
-  setValue(value) {
-    Object.defineProperty(this.$inner, 'element', { value, enumerable: true });
-  }
-
-  setAttribute(key, value) {
-    if (!this.attributes) throw new Error('This value coult not set attribute!')
-    if (!this.attributes.includes(key)) throw new Error('This value attribute not include ' + key + ' !');
-    this.setAttr(key, value);
-  }
 }
 /**
  * 值类型集合
