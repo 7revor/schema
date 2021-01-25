@@ -30,7 +30,7 @@ export class SingleCheckField extends Field {
       */
     this.defineElementMapping('value', () => {
       const valueField = this.getValueField();
-      if (!valueField) return [];
+      if (!valueField) return this.isMultiComponent() ? [] : { value: null, display: null };
       if (valueField instanceof ValueField) return valueField.toJSON();
       if (valueField instanceof ValueFieldList) {
         return [...valueField.map(field => field.toJSON())]

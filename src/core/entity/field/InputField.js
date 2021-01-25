@@ -23,7 +23,7 @@ export class InputField extends Field {
       */
     this.defineElementMapping('value', () => {
       const valueField = this.getValueField();
-      if (!valueField) return [];
+      if (!valueField) return this.isMultiComponent() ? [] : { value: null, display: null };
       if (valueField instanceof ValueField) return valueField.toJSON();    // 子类目
       else if (valueField instanceof ValueFieldList) {                     // multi子类目
         return [...valueField.map(field => field.toJSON())]

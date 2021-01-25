@@ -26,12 +26,19 @@ export class ComplexField extends Field {
         */
       this.setElement('value', new ComplexValueGroup(initValue, this));
     }
+    if (this.name === '类目属性') {
+      const caizhi = this.fields[4];
+      const template = caizhi.getComplexValuesItemTemplate()
+      caizhi.addComplexValues(template);
+      const value = caizhi.value;
+      caizhi.applyValue(value)
+    }
     /**
       * 添加映射(只有顶级字段含有value信息)
       */
     this.defineElementMapping('value', () => {
       const valueField = this.getValueField();
-      if(!valueField) return [];
+      if (!valueField) return [];
       if (valueField instanceof ValueFieldList) {  // 含有嵌套complex-values
         return [...valueField.map(field => ({ id: field.id, name: field.name, value: field.toJSON() }))];
       } else {

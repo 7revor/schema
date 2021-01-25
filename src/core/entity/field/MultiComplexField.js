@@ -62,21 +62,27 @@ export class MultiComplexField extends Field {
         return valueList
       }
     })
-    if (this.isRoot()) {
-      const template = this.getComplexValuesTemplate();
-      console.log(template);
-      this.addComplexValues(template);
-      this.removeComplexValues(0)
-    }
   }
   /**
-    * 获取属性填充模板
+   * 应用数据
+   */
+  applyValue(value) {
+    if (!(value instanceof Array)) throw new Error('MultiComplex value must be typeof Array!');
+    this.value.forEach(() => this.removeComplexValues(0));
+    value.forEach(v => {
+      const template = new Template(this);
+      template.setTemplate(v);
+      this.addComplexValues(template);
+    })
+  }
+  /**
+    * 获取属性填充模板(单个)
     */
-  getComplexValuesTemplate() {
+  getComplexValuesItemTemplate() {
     const initValue = [];
-    recursionValue(initValue, this);
+    recursionValue(initValue, this, [], true);
     const template = new Template(this);
-    template.setTemplate(initValue);
+    template.setTemplate(initValue[0]);
     return template
   }
   /**
@@ -84,24 +90,22 @@ export class MultiComplexField extends Field {
    * @param {*} template 模板数据
    * @param  {...any} indexArray 想要填充到的complexValues下标（从第一个complexValues元素开始）
    */
-  addComplexValues(template, ...indexArray) {
+  addComplexValues(template) {
     if (!(template instanceof Template)) throw new Error('addcomplexValues receive Template from getComplexValuesTemplate only!');
     if (this.id !== template.id) throw new Error('Template id mismatch!');
     const values = template.getTemplate();
     const valueField = this.getValueField();    //  两种情况：1.根节点，返回element  2.valueField数组
-    if (valueField instanceof ValueFieldList) { // 子节点
+    if (this.isMultiComponent()) { // 子节点
       throw new Error('Child add not support!')
     } else {                                    // 根节点
-      values.forEach(value => {
-        const complexValues = new ComplexValues(value, this);
-        valueField.value.push(complexValues)
-      })
+      const complexValues = new ComplexValues(values, this);
+      valueField.value.push(complexValues)
     }
   }
   /**
    * 删除某组属性
    */
-  removeComplexValues(index, ...indexArray) {
+  removeComplexValues(index) {
     /**
        * 递归
        */
@@ -116,7 +120,7 @@ export class MultiComplexField extends Field {
       }
     }
     const valueField = this.getValueField();    //  两种情况：1.根节点，返回element  2.valueField数组
-    if (valueField instanceof ValueFieldList) { // 子节点
+    if (this.isMultiComponent()) { // 子节点
       throw new Error('Child remove not support!')
     } else {                                    // 根节点
       const targetValueField = valueField.value[index];
