@@ -1,16 +1,7 @@
 import { Tag } from "../../base/Tag";
 import { FieldType, isLegalFieldType } from '../Constant';
-import { MaxLengthRule, MinLengthRule } from "../rule/LengthRule";
-import { MaxNumRule, MinNumRule } from "../rule/NumRule";
-import { ReadOnlyRule } from "../rule/ReadOnlyRule";
-import { RequiredRule } from "../rule/RequiredRule";
 import { Rules } from '../rule/Rules';
-import { DevTipRule, TipRule } from "../rule/TipRule";
-import { ValueAttributeRule } from "../rule/ValueAttributeRule";
-import { MaxValueRule, MinValueRule } from "../rule/ValueRule";
-import { ValueTypeRule } from "../rule/ValueTypeRule";
 import { Value } from "../value/Value";
-import { ValueField } from "../value/ValueField";
 
 export class ValueFieldList extends Array { }
 /**
