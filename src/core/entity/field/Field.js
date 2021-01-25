@@ -104,7 +104,7 @@ export class Field extends Tag {
   /**
    * 获取顶级field
    */
-  getAncestor() {
+  getRoot() {
     let parent = this;
     while (parent.parent) parent = parent.parent;
     return parent
