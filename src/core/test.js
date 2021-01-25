@@ -1,6 +1,6 @@
 import demo from "./demo.json";
 import { ItemSchema } from "./entity/ItemSchema";
-const catId = 121452038;
+const catId = 50003881;
 export default function () {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', 'http://localhost/item/publish/schema/get?catId=' + catId, true);

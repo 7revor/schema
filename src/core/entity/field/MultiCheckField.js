@@ -44,10 +44,16 @@ export class MultiCheckField extends Field {
    * 添加选项
    */
   addValue(value) {
-    const valueField = this.getValueField();
     if (this.isMultiComponent()) throw new Error('MultiComplex\'s child field could not addValue value alone! Please get complexValueTemplate from parent multi field first！');
-    if (!valueField.value.find(v => v.value === value)) {
-      valueField.value.push(new Value({ value }));
+    const valueField = this.getValueField();
+    if (typeof value !== 'object') {
+      if (!valueField.value.find(v => v.value === value)) {
+        valueField.value.push(new Value({ value }));
+      }
+    } else {
+      if (!valueField.value.find(v => v.value === value.value)) {
+        valueField.value.push(new Value(value));
+      }
     }
   }
   /**

@@ -42,10 +42,16 @@ export class SingleCheckField extends Field {
       }
     })
   }
-
+  /**
+   * 设置值
+   */
   setValue(value) {
-    const valueField = this.getValueField();
     if (this.isMultiComponent()) throw new Error('MultiComplex\'s child field could not set value alone! Please get complexValueTemplate from parent multi field first！');
-    valueField.value.setValue(value);
+    const valueField = this.getValueField();
+    if (typeof value !== 'object') {
+      valueField.value.setValue(value.value);
+    } else {
+      this.setElement('value', new Value(value, this));
+    }
   }
 }

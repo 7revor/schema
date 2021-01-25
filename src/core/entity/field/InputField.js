@@ -39,8 +39,8 @@ export class InputField extends Field {
    * 设置新值
    */
   setValue(value) {
-    const valueField = this.getValueField();
     if (this.isMultiComponent()) throw new Error('MultiComplex\'s child field could not set value alone! Please get complexValueTemplate from parent multi field first！');
+    const valueField = this.getValueField();
     valueField.value.setValue(value);
   }
 }
